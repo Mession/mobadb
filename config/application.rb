@@ -8,6 +8,10 @@ Bundler.require(:default, Rails.env)
 
 module Mobadb
   class Application < Rails::Application
+    # omat
+    config.i18n.enforce_available_locales = false
+    # omat end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

@@ -1,6 +1,6 @@
 Wadror projekti
 
-parityö, tekijät
+parityö, tekijät:
 
 {Juho Leinonen}[https://github.com/Mession]
 

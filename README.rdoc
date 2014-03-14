@@ -1,1 +1,5 @@
 Wadror projekti
+
+parityö, tekijät
+{Juho Leinonen}[https://github.com/Mession]
+{Eemi Haukkala}[https://github.com/eemihauk]

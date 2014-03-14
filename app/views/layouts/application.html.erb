@@ -9,6 +9,7 @@
 <body>
 <div class="navibar">
   <%= link_to 'users', users_path %>
+  <%= link_to 'teams', teams_path %>
   <%= " | " %>
   <% if current_user.nil? %>
       <%= link_to 'Sign in', new_session_path %>

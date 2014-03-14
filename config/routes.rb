@@ -1,4 +1,6 @@
 Mobadb::Application.routes.draw do
+  resources :teams
+
   resources :users
   root 'users#index'
   get 'signup', to: 'users#new'

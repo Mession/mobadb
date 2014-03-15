@@ -1,4 +1,6 @@
-Wadror projekti
+Wadror projekti - moba database
+
+http://mobadb.herokuapp.com/
 
 parityö, tekijät:
 

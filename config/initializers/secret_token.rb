@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Mobadb::Application.config.secret_key_base = '583346c611585b6cdd47f7d55c0407764d1e90ba8c6f5285d38e36c59dbe5607f775284cfba2f98becc4d46d0b0184d37b8e09afa3efccdac1af5c88d510271a'
+Mobadb::Application.config.secret_key_base = ENV['SECRET_TOKEN']

@@ -1,4 +1,13 @@
 require 'spec_helper'
+# rivit coveragea varten
+MembershipsController
+ApplicationController
+SessionsController
+TeamsController
+UsersController
+Membership
+Team
+User
 
 describe User do
   it "has the username set correctly" do

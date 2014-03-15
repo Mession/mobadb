@@ -1,6 +1,7 @@
 Wadror projekti - moba database
 
 {<img src="https://travis-ci.org/Mession/mobadb.png?branch=master" alt="Build Status" />}[https://travis-ci.org/Mession/mobadb]
+{<img src="https://codeclimate.com/github/Mession/mobadb.png" />}[https://codeclimate.com/github/Mession/mobadb]
 
 http://mobadb.herokuapp.com
 

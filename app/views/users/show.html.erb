@@ -5,5 +5,17 @@
   <%= @user.username %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<p>
+  <% if @user.teams.empty? %>
+    Doesn't belong to any teams yet.
+  <% else %>
+    Belongs to the following teams:
+      <br>
+    <% @user.teams.each do |team| %>
+      <%= link_to team.name, team %>
+      <br>
+    <% end %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %>

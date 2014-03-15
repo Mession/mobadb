@@ -1,4 +1,6 @@
 Mobadb::Application.routes.draw do
+  resources :memberships
+
   resources :teams
 
   resources :users

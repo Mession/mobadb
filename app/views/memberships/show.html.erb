@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Team:</strong>
+  <%= Team.find(@membership.team_id).name %>
+</p>
+
+<p>
+  <strong>Member:</strong>
+  <%= User.find(@membership.user_id).username %>
+</p>
+
+<%= link_to('Leave team', @membership, method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == @membership.user_id%>

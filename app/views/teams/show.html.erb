@@ -15,5 +15,14 @@
   <%= @team.location %>
 </p>
 
+<p>
+  <strong>Members:</strong>
+  <br>
+  <% @team.members.each do |member| %>
+      <%= link_to member.username, member %>
+      <br>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>

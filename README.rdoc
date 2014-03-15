@@ -1,6 +1,6 @@
 Wadror projekti - moba database
 
-http://mobadb.herokuapp.com/
+http://mobadb.herokuapp.com
 
 parityö, tekijät:
 

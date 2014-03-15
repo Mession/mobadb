@@ -33,6 +33,7 @@ class MembershipsController < ApplicationController
         format.html { redirect_to @membership.team, notice: 'Membership was successfully created.' }
         format.json { render action: 'show', status: :created, location: @membership }
       else
+        @teams = Team.all
         format.html { render action: 'new' }
         format.json { render json: @membership.errors, status: :unprocessable_entity }
       end
@@ -47,6 +48,7 @@ class MembershipsController < ApplicationController
         format.html { redirect_to @membership, notice: 'Membership was successfully updated.' }
         format.json { head :no_content }
       else
+        @teams = Team.all
         format.html { render action: 'edit' }
         format.json { render json: @membership.errors, status: :unprocessable_entity }
       end

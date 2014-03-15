@@ -1,4 +1,4 @@
-Wadror projekti - moba database
+Wadror projekti - moba database and team builder
 
 {<img src="https://travis-ci.org/Mession/mobadb.png?branch=master" alt="Build Status" />}[https://travis-ci.org/Mession/mobadb]
 {<img src="https://codeclimate.com/github/Mession/mobadb.png" />}[https://codeclimate.com/github/Mession/mobadb]

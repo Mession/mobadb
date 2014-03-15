@@ -1,0 +1,16 @@
+language: ruby
+rvm:
+- 2.0.0
+script:
+- bundle exec rake db:migrate --trace
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rspec -fd spec/
+deploy:
+  provider: heroku
+  api_key:
+    secure: EJGnYC5SdbIl4nryfFGjg5ost8rIE0FeOe7RuQSioBYpvKramm2yOVTY0XPASlYHDnC8YR6+uN16mauzffETssv5VbFJlkSeXo/raH70JE8HwsJvWacLNHrBYTWUMjtZEXYp23KwlpMr1nvhsBtQ95YdnbaSpi+z/kMk1fgaTzs=
+  run: "rake db:migrate"
+  app: mobadb
+  on:
+    repo: Mession/mobadb

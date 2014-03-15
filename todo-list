@@ -1,0 +1,12 @@
+Ainakin 2 tietokantataulua lisää (hero ja item, ehkä game (e.g. dota 2, lol, hon..))
+
+Moar tests (>90% testikattavuus)
+
+Dokumentaatio (sovelluksen käyttötarkoitus, lyhyt käyttöohje, datamalli (esim. yuml.me:llä) sekä testausperiaate (mitä testattu rspecillä, mitä jätetty
+testauksen ulkopuolelle) kuvattuna githubin wikissä
+
+Ulkoasun hiominen (esim. twitter bootstrap)
+
+Selainpuolen toiminnallisuutta?
+
+API-käyttö (dota 2 ainakin löytyy API)

@@ -2,12 +2,12 @@
 
 <p>
   <strong>Team:</strong>
-  <%= Team.find(@membership.team_id).name %>
+  <%= link_to Team.find(@membership.team_id).name, Team.find(@membership.team_id) %>
 </p>
 
 <p>
   <strong>Member:</strong>
-  <%= User.find(@membership.user_id).username %>
+  <%= link_to User.find(@membership.user_id).username, User.find(@membership.user_id) %>
 </p>
 
 <%= link_to('Leave team', @membership, method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == @membership.user_id%>

@@ -14,8 +14,8 @@
   <tbody>
     <% @memberships.each do |membership| %>
       <tr>
-        <td><%= Team.find(membership.team_id).name %></td>
-        <td><%= User.find(membership.user_id).username %></td>
+        <td><%= link_to Team.find(membership.team_id).name, Team.find(membership.team_id) %></td>
+        <td><%= link_to User.find(membership.user_id).username, User.find(membership.user_id) %></td>
         <td><%= link_to 'Show', membership %></td>
         <td><%= link_to('Leave team', membership, method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == membership.user_id%></td>
       </tr>

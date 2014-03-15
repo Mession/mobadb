@@ -1,5 +1,5 @@
 Mobadb::Application.routes.draw do
-  resources :memberships
+  resources :memberships, except: [:edit]
 
   resources :teams
 

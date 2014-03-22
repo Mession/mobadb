@@ -25,6 +25,7 @@
 </p>
 
 <% if current_user && @team.members.include?(current_user) %>
-    <%= link_to('Edit', edit_team_path(@team)) %>
-    <%= link_to('Destroy', @team, method: :delete, data: { confirm: 'Are you sure?' }) %>
+    <%= link_to('Leave team', @membership, method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == @membership.user_id%>
+    <%= link_to('Edit team', edit_team_path(@team)) %>
+    <%= link_to('Destroy team', @team, method: :delete, data: { confirm: 'Are you sure?' }) %>
 <% end %>

@@ -1,5 +1,6 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_that_signed_in, except: [:index, :show]
 
   # GET /teams
   # GET /teams.json
@@ -10,6 +11,7 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
+    @membership = Membership.where(user_id: current_user.id, team_id: @team.id).first
   end
 
   # GET /teams/new

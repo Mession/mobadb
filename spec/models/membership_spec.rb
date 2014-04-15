@@ -1,10 +1,11 @@
 require 'spec_helper'
 
-
+# TESTTAA MEMBERSHIPIN POISTUMISTA KUN USER TAI TEAM POISTETAAN
 describe Membership do
 
   let(:user) { FactoryGirl.create(:user) }
   let(:user2) { FactoryGirl.create(:user2) }
+  let(:user3) { FactoryGirl.create(:user3) }
   let(:team) { FactoryGirl.create(:team) }
 
   describe "when the user is not yet a member" do
@@ -62,6 +63,35 @@ describe Membership do
       membership
       mem2 = FactoryGirl.build(:membership2, user: user2, team: team, team_leader: true)
       expect(mem2.save).to be(false)
+    end
+
+  end
+
+  describe "when team has a max of 3 members" do
+    let(:membership) { FactoryGirl.create(:membership) }
+    let(:membership2) { FactoryGirl.create(:membership2) }
+
+
+    it "4th member cannot join" do
+      membership
+      membership2
+      FactoryGirl.create(:membership3)
+
+      u = FactoryGirl.create(:user, username: "neljas")
+      mem4 = FactoryGirl.build(:membership, user: u)
+
+      expect(mem4.save).to be_false
+      expect(Membership.count).to eq 3
+    end
+
+    it "3rd member can join" do
+      membership
+      membership2
+
+      mem3 = FactoryGirl.build(:membership3)
+
+      expect(mem3.save).to be_valid
+      expect(Membership.count).to eq 3
     end
 
   end

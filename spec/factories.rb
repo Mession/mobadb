@@ -11,11 +11,18 @@ FactoryGirl.define do
     password_confirmation "Foobar2"
   end
 
+  factory :user3, class: User do
+    username "Matti"
+    password "Foobar3"
+    password_confirmation "Foobar3"
+  end
+
   factory :team do
     name "testTeam"
     year "2004"
     location "testland"
     game
+    max_members 3
   end
 
   factory :game do
@@ -30,6 +37,12 @@ FactoryGirl.define do
 
   factory :membership2, class: Membership do
     user :user2
+    team
+    team_leader false
+  end
+
+  factory :membership3, class: Membership do
+    user :user3
     team
     team_leader false
   end

@@ -15,7 +15,7 @@ class Membership < ActiveRecord::Base
   end
 
   def no_more_members_when_full
-    max_members = Team.find(self.team_id).max_members
+    max_members = Team.find_by(id: self.team_id).max_members
     if team_id.present? && Membership.where(team_id: self.team_id).count >= max_members
       errors.add(:team_id, "cannot have more than #{max_members} members!")
     end

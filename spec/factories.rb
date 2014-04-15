@@ -13,7 +13,7 @@ FactoryGirl.define do
 
   factory :team do
     name "testTeam"
-    year "2000"
+    year "2004"
     location "testland"
     game
   end

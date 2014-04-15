@@ -16,6 +16,7 @@ class MembershipsController < ApplicationController
   # GET /memberships/new
   def new
     @membership = Membership.new
+    @membership.team_leader = false
     @teams = Team.all
   end
 

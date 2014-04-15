@@ -18,11 +18,6 @@ describe Membership do
       FactoryGirl.create(:membership, user: user, team: team, team_leader: true)
       expect(Membership.count).to eq(1)
     end
-
-    it "must tell if member is leader or not" do
-      FactoryGirl.create(:membership, user: user, team: team, team_leader: nil)
-      expect(Membership.count).to eq(0)
-    end
   end
 
   describe "when the user is a normal member" do
@@ -65,8 +60,8 @@ describe Membership do
 
     it "cannot have a second leader" do
       membership
-      FactoryGirl.create(:membership2, user: user2, team: team, team_leader: true)
-      expect(Membership.count).to eq(1)
+      mem2 = FactoryGirl.build(:membership2, user: user2, team: team, team_leader: true)
+      expect(mem2.save).to be(false)
     end
 
   end

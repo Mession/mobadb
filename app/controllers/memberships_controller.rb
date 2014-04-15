@@ -1,17 +1,6 @@
 class MembershipsController < ApplicationController
   before_action :set_membership, only: [:show, :edit, :update, :destroy]
   before_action :ensure_that_signed_in, except: [:index, :show]
-  before_action :set_team_id, only: [:changeleader]
-
-  def set_team_id
-    
-  end
-
-  def changeleader
-    Membership.where(user_id: current_user.id, team_id: :tid).first.team_leader = false;
-    Membership.where(user_id: newleader.id, team_id: :tid).first.team_leader = true;
-    redirect_to :back
-  end
 
   # GET /memberships
   # GET /memberships.json

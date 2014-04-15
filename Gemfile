@@ -58,6 +58,11 @@ group :test do
   gem 'webmock'
 end
 
+gem 'bootstrap-sass'
+group :development do
+  gem 'rails_layout'
+end
+
 group :development, :test do
   gem 'sqlite3'
 end

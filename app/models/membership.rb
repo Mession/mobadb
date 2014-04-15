@@ -9,7 +9,7 @@ class Membership < ActiveRecord::Base
   validate :no_more_members_when_full
 
   def no_multiple_leaders
-    if team_id.present? && Membership.where(team_id: self.team_id, team_leader: true).any?
+    if team_id.present? && Membership.where(team_id: self.team_id, team_leader: true).any? && team_leader == true
       errors.add(:team_leader, "cannot have multiple!")
     end
   end

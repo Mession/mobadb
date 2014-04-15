@@ -25,15 +25,19 @@ class TeamsController < ApplicationController
   # GET /teams/1/edit
   def edit
     @games = Game.all
+    @memberships = Membership.where(team_id: @team.id)
   end
 
   # POST /teams
   # POST /teams.json
   def create
     @team = Team.new(team_params)
+    @membership = Membership.new(user_id: current_user.id, team_leader: true)
 
     respond_to do |format|
       if @team.save
+        @membership.team_id = @team.id
+        @membership.save
         format.html { redirect_to @team, notice: 'Team was successfully created.' }
         format.json { render action: 'show', status: :created, location: @team }
       else

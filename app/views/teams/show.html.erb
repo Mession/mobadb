@@ -24,11 +24,6 @@
   <br>
   <% @team.members.each do |member| %>
       <%= link_to member.username, member %>
-      <% if current_user && @team.members.include?(current_user) && current_user.memberships.where(team_id: @team.id).first.team_leader %>
-        <% unless (Membership.where(team_id: @team.id, user_id: member.id).first.team_leader == true) %>
-            <%= button_to "Make leader", 'makeleader', method: :post, data: { confirm: "Are you sure?", team_id: @team.id, newleader: member.id } %>
-        <% end %>
-      <% end %>
       <br>
   <% end %>
 </p>

@@ -6,6 +6,10 @@
 </p>
 
 <p>
+  is a <%= @team.game.name %> team
+</p>
+
+<p>
   <strong>Year:</strong>
   <%= @team.year %>
 </p>
@@ -28,6 +32,6 @@
     <%= link_to('Leave team', @membership, method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == @membership.user_id%>
     <%= link_to('Edit team', edit_team_path(@team)) %>
 <% end %>
-<% if current_user && current_user.memberships.where(team_id: @team.id).first.team_leader %>
+<% if current_user && @team.members.include?(current_user) && current_user.memberships.where(team_id: @team.id).first.team_leader %>
     <%= link_to('Destroy team', @team, method: :delete, data: { confirm: 'Are you sure?' }) %>
 <% end %>

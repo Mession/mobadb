@@ -18,6 +18,7 @@
 # omat
 *.lock
 coverage/
+test/
 .idea
 .env
 db/schema.rb

@@ -11,7 +11,9 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
-    @membership = Membership.where(user_id: current_user.id, team_id: @team.id).first
+    if current_user
+      @membership = Membership.where(user_id: current_user.id, team_id: @team.id).first
+    end
   end
 
   # GET /teams/new

@@ -1,4 +1,6 @@
 Mobadb::Application.routes.draw do
+  resources :games
+
   resources :memberships, except: [:edit]
 
   resources :teams

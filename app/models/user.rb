@@ -5,4 +5,7 @@ class User < ActiveRecord::Base
 
   has_many :memberships, dependent: :destroy
   has_many :teams, through: :memberships
+  has_many :role_ratings, dependent: :destroy
+  has_many :roles, through: :role_ratings
+  has_many :champ_ratings, dependent: :destroy
 end

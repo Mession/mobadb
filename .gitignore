@@ -20,3 +20,5 @@
 coverage/
 .idea
 .env
+db/schema.rb
+db/*.sqlite3

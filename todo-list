@@ -10,3 +10,19 @@ Selainpuolen toiminnallisuutta?
 API-käyttö (dota 2 & lol apit)
 
 herojen lisäyksen jälkeen userin sivulle favourite hero, favourite role (support, carry, ganker, mid..) etc.
+
+Create tables hero rating, hero, API
+
+Create feature hero/champ rating, hero/champ listing thru API
+
+Favourite hero/champ and role on user page
+
+Teamin sivulla comppeja ja filtteröinti (champ ratingien perusteella, esim. kuka on paras tämän heron kanssa jne.)
+
+Teamin sivulle kuka on leader
+
+Herosivulla tietoa oman teamin preferenceistä (esim. table team membereistä ja niiden ratingit tällä herolla)
+
+Erikseen champ/hero -ratingiin understanding (osaa pelata vastaan), hauskuus (tykkää pelata sitä), oma taso (osaako pelata)
+
+bonuksena teamin sivulle textfield (chat)

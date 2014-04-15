@@ -4,23 +4,23 @@ require 'spec_helper'
 describe Team do
 
   it "cannot have an empty name" do
-    FactoryGirl.create(:team, name: "")
-    expect(Team.count).to eq(0)
+    t = FactoryGirl.build(:team, name: "")
+    expect(t.save).to be(false)
   end
 
   it "must have a game" do
-    FactoryGirl.create(:team, game_id: nil)
-    expect(Team.count).to eq(0)
+    t = FactoryGirl.build(:team, game_id: nil)
+    expect(t.save).to be(false)
   end
 
   it "cannot have a negative year" do
-    FactoryGirl.create(:team, year: -1)
-    expect(Team.count).to eq(0)
+    t = FactoryGirl.build(:team, year: -1)
+    expect(t.save).to be(false)
   end
 
   it "cannot be from the future" do
-    FactoryGirl.create(:team, year: Time.now.year + 1000)
-    expect(Team.count).to eq(0)
+    t = FactoryGirl.build(:team, year: Time.now.year + 1000)
+    expect(t.save).to be(false)
   end
 
   it "is created when it has proper values" do
@@ -34,18 +34,18 @@ describe Team do
   end
 
   it "cannot have negative max members" do
-    FactoryGirl.create(:team, max_members: -1)
-    expect(Team.count).to eq(0)
+    t = FactoryGirl.build(:team, max_members: -1)
+    expect(t.save).to be(false)
   end
 
   it "cannot have zero max members" do
-    FactoryGirl.create(:team, max_members: 0)
-    expect(Team.count).to eq(0)
+    t = FactoryGirl.build(:team, max_members: 0)
+    expect(t.save).to be(false)
   end
 
   it "max members must be atleast 3" do
-    FactoryGirl.create(:team, max_members: 2)
-    expect(Team.count).to eq(0)
+    t = FactoryGirl.build(:team, max_members: 2)
+    expect(t.save).to be(false)
   end
 end
 

@@ -1,14 +1,14 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/Mession/Documents/Yliopisto/wadror/mobadb/config/environment.rb": [
+      "/home/eemi/Git/mobadb/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/Users/Mession/Documents/Yliopisto/wadror/mobadb/config/application.rb": [
+      "/home/eemi/Git/mobadb/config/application.rb": [
         1,
         null,
         1,
@@ -37,13 +37,13 @@
         null,
         null
       ],
-      "/Users/Mession/Documents/Yliopisto/wadror/mobadb/config/boot.rb": [
+      "/home/eemi/Git/mobadb/config/boot.rb": [
         null,
         1,
         null,
         1
       ],
-      "/Users/Mession/Documents/Yliopisto/wadror/mobadb/config/environments/test.rb": [
+      "/home/eemi/Git/mobadb/config/environments/test.rb": [
         1,
         null,
         null,
@@ -81,7 +81,7 @@
         1,
         null
       ],
-      "/Users/Mession/Documents/Yliopisto/wadror/mobadb/config/initializers/backtrace_silencers.rb": [
+      "/home/eemi/Git/mobadb/config/initializers/backtrace_silencers.rb": [
         null,
         null,
         null,
@@ -90,13 +90,13 @@
         null,
         null
       ],
-      "/Users/Mession/Documents/Yliopisto/wadror/mobadb/config/initializers/filter_parameter_logging.rb": [
+      "/home/eemi/Git/mobadb/config/initializers/filter_parameter_logging.rb": [
         null,
         null,
         null,
         1
       ],
-      "/Users/Mession/Documents/Yliopisto/wadror/mobadb/config/initializers/inflections.rb": [
+      "/home/eemi/Git/mobadb/config/initializers/inflections.rb": [
         null,
         null,
         null,
@@ -114,14 +114,14 @@
         null,
         null
       ],
-      "/Users/Mession/Documents/Yliopisto/wadror/mobadb/config/initializers/mime_types.rb": [
+      "/home/eemi/Git/mobadb/config/initializers/mime_types.rb": [
         null,
         null,
         null,
         null,
         null
       ],
-      "/Users/Mession/Documents/Yliopisto/wadror/mobadb/config/initializers/secret_token.rb": [
+      "/home/eemi/Git/mobadb/config/initializers/secret_token.rb": [
         null,
         null,
         null,
@@ -139,12 +139,12 @@
         0,
         null
       ],
-      "/Users/Mession/Documents/Yliopisto/wadror/mobadb/config/initializers/session_store.rb": [
+      "/home/eemi/Git/mobadb/config/initializers/session_store.rb": [
         null,
         null,
         1
       ],
-      "/Users/Mession/Documents/Yliopisto/wadror/mobadb/config/initializers/wrap_parameters.rb": [
+      "/home/eemi/Git/mobadb/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -160,7 +160,7 @@
         null,
         null
       ],
-      "/Users/Mession/Documents/Yliopisto/wadror/mobadb/spec/factories.rb": [
+      "/home/eemi/Git/mobadb/spec/factories.rb": [
         1,
         1,
         1,
@@ -169,7 +169,7 @@
         null,
         null
       ],
-      "/Users/Mession/Documents/Yliopisto/wadror/mobadb/config/routes.rb": [
+      "/home/eemi/Git/mobadb/config/routes.rb": [
         1,
         1,
         null,
@@ -238,23 +238,23 @@
         null,
         null
       ],
-      "/Users/Mession/Documents/Yliopisto/wadror/mobadb/app/helpers/application_helper.rb": [
+      "/home/eemi/Git/mobadb/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/Mession/Documents/Yliopisto/wadror/mobadb/app/helpers/memberships_helper.rb": [
+      "/home/eemi/Git/mobadb/app/helpers/memberships_helper.rb": [
         1,
         null
       ],
-      "/Users/Mession/Documents/Yliopisto/wadror/mobadb/app/helpers/teams_helper.rb": [
+      "/home/eemi/Git/mobadb/app/helpers/teams_helper.rb": [
         1,
         null
       ],
-      "/Users/Mession/Documents/Yliopisto/wadror/mobadb/app/helpers/users_helper.rb": [
+      "/home/eemi/Git/mobadb/app/helpers/users_helper.rb": [
         1,
         null
       ],
-      "/Users/Mession/Documents/Yliopisto/wadror/mobadb/spec/support/helpers/own_test_helper.rb": [
+      "/home/eemi/Git/mobadb/spec/support/helpers/own_test_helper.rb": [
         1,
         null,
         1,
@@ -265,7 +265,7 @@
         null,
         null
       ],
-      "/Users/Mession/Documents/Yliopisto/wadror/mobadb/spec/models/user_spec.rb": [
+      "/home/eemi/Git/mobadb/spec/models/user_spec.rb": [
         1,
         null,
         1,
@@ -301,7 +301,8 @@
         null,
         null
       ],
-      "/Users/Mession/Documents/Yliopisto/wadror/mobadb/app/controllers/memberships_controller.rb": [
+      "/home/eemi/Git/mobadb/app/controllers/memberships_controller.rb": [
+        1,
         1,
         1,
         null,
@@ -381,7 +382,7 @@
         null,
         null
       ],
-      "/Users/Mession/Documents/Yliopisto/wadror/mobadb/app/controllers/application_controller.rb": [
+      "/home/eemi/Git/mobadb/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -399,7 +400,7 @@
         null,
         null
       ],
-      "/Users/Mession/Documents/Yliopisto/wadror/mobadb/app/controllers/sessions_controller.rb": [
+      "/home/eemi/Git/mobadb/app/controllers/sessions_controller.rb": [
         1,
         1,
         null,
@@ -420,7 +421,8 @@
         null,
         null
       ],
-      "/Users/Mession/Documents/Yliopisto/wadror/mobadb/app/controllers/teams_controller.rb": [
+      "/home/eemi/Git/mobadb/app/controllers/teams_controller.rb": [
+        1,
         1,
         1,
         null,
@@ -433,6 +435,7 @@
         null,
         null,
         1,
+        0,
         null,
         null,
         null,
@@ -496,7 +499,8 @@
         null,
         null
       ],
-      "/Users/Mession/Documents/Yliopisto/wadror/mobadb/app/controllers/users_controller.rb": [
+      "/home/eemi/Git/mobadb/app/controllers/users_controller.rb": [
+        1,
         1,
         1,
         null,
@@ -583,7 +587,7 @@
         null,
         null
       ],
-      "/Users/Mession/Documents/Yliopisto/wadror/mobadb/app/models/membership.rb": [
+      "/home/eemi/Git/mobadb/app/models/membership.rb": [
         1,
         1,
         null,
@@ -591,13 +595,13 @@
         1,
         null
       ],
-      "/Users/Mession/Documents/Yliopisto/wadror/mobadb/app/models/team.rb": [
+      "/home/eemi/Git/mobadb/app/models/team.rb": [
         1,
         1,
         1,
         null
       ],
-      "/Users/Mession/Documents/Yliopisto/wadror/mobadb/app/models/user.rb": [
+      "/home/eemi/Git/mobadb/app/models/user.rb": [
         1,
         1,
         null,
@@ -608,6 +612,6 @@
         null
       ]
     },
-    "timestamp": 1394900281
+    "timestamp": 1397558790
   }
 }

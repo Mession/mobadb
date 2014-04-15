@@ -28,10 +28,9 @@
   <% end %>
 </p>
 
-<% if current_user && @team.members.include?(current_user) %>
-    <%= link_to('Leave team', @membership, method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == @membership.user_id%>
-    <%= link_to('Edit team', edit_team_path(@team)) %>
-<% end %>
 <% if current_user && @team.members.include?(current_user) && current_user.memberships.where(team_id: @team.id).first.team_leader %>
+    <%= link_to('Edit team', edit_team_path(@team)) %>
     <%= link_to('Destroy team', @team, method: :delete, data: { confirm: 'Are you sure?' }) %>
+<% elsif current_user && @team.members.include?(current_user) %>
+    <%= link_to('Leave team', @membership, method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == @membership.user_id %>
 <% end %>

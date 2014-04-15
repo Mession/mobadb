@@ -16,7 +16,6 @@
 /tmp
 
 # omat
-*.lock
 coverage/
 test/
 .idea

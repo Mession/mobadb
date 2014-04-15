@@ -1,5 +1,6 @@
 class Score < ActiveRecord::Base
   has_many :champ_ratings
+  has_many :role_ratings
 
   validates :description, presence: true
 

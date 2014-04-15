@@ -4,8 +4,9 @@ require 'spec_helper'
 describe Membership do
 
   let(:user) { FactoryGirl.create(:user) }
-  let(:user2) { FactoryGirl.create(:user2) }
-  let(:user3) { FactoryGirl.create(:user3) }
+  let(:user2) { FactoryGirl.create(:user, username: "test2") }
+  let(:user3) { FactoryGirl.create(:user, username: "test3") }
+  let(:user4) { FactoryGirl.create(:user, username: "test4") }
   let(:team) { FactoryGirl.create(:team) }
 
   describe "when the user is not yet a member" do
@@ -26,19 +27,19 @@ describe Membership do
 
     it "wont be created if duplicate (second membership non-leader)" do
       membership # jotta let() lataisi membershipin
-      mem2 = FactoryGirl.build(:membership2, user: user, team: team, team_leader: false)
+      mem2 = FactoryGirl.build(:membership, user: user, team: team, team_leader: false)
       expect(mem2.save).to be(false)
     end
 
     it "wont be created if duplicate (second membership leader)" do
       membership
-      mem2 = FactoryGirl.build(:membership2, user: user, team: team, team_leader: true)
+      mem2 = FactoryGirl.build(:membership, user: user, team: team, team_leader: true)
       expect(mem2.save).to be(false)
     end
 
     it "can be a second different membership in same team" do
       membership
-      FactoryGirl.create(:membership2, user: user2, team: team, team_leader: false)
+      FactoryGirl.create(:membership, user: user2, team: team, team_leader: false)
       expect(Membership.count).to eq(2)
     end
 
@@ -49,49 +50,49 @@ describe Membership do
 
     it "wont be created if duplicate (second membership non-leader)" do
       membership
-      mem2 = FactoryGirl.build(:membership2, user: user, team: team, team_leader: false)
+      mem2 = FactoryGirl.build(:membership, user: user, team: team, team_leader: false)
       expect(mem2.save).to be(false)
     end
 
     it "wont be created if duplicate (second membership leader)" do
       membership
-      mem2 = FactoryGirl.build(:membership2, user: user, team: team, team_leader: true)
+      mem2 = FactoryGirl.build(:membership, user: user, team: team, team_leader: true)
       expect(mem2.save).to be(false)
     end
 
     it "cannot have a second leader" do
       membership
-      mem2 = FactoryGirl.build(:membership2, user: user2, team: team, team_leader: true)
+      mem2 = FactoryGirl.build(:membership, user: user2, team: team, team_leader: true)
       expect(mem2.save).to be(false)
     end
 
   end
 
   describe "when team has a max of 3 members" do
-    let(:membership) { FactoryGirl.create(:membership) }
-    let(:membership2) { FactoryGirl.create(:membership2) }
+    let(:membership) { FactoryGirl.create(:membership, team: team, team_leader: true) }
+    let(:membership2) { FactoryGirl.create(:membership, user: user2, team: team) }
+    let(:membership3) { FactoryGirl.create(:membership, user: user3, team: team) }
 
 
     it "4th member cannot join" do
       membership
       membership2
-      FactoryGirl.create(:membership3)
+      membership3
 
-      u = FactoryGirl.create(:user, username: "neljas")
-      mem4 = FactoryGirl.build(:membership, user: u)
+      mem4 = FactoryGirl.build(:membership, user: user4, team: team)
 
-      expect(mem4.save).to be_false
-      expect(Membership.count).to eq 3
+      expect(mem4.save).to be(false)
+      expect(team.members.count).to eq 3
     end
 
     it "3rd member can join" do
       membership
       membership2
 
-      mem3 = FactoryGirl.build(:membership3)
+      mem3 = FactoryGirl.build(:membership, user: user3, team: team)
 
-      expect(mem3.save).to be_valid
-      expect(Membership.count).to eq 3
+      expect(mem3.save).to be(true)
+      expect(team.members.count).to eq 3
     end
 
   end

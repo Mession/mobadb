@@ -16,5 +16,7 @@
 /tmp
 
 # omat
+*.lock
+coverage/
 .idea
 .env

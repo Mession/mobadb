@@ -1,15 +1,12 @@
-Ainakin 2 tietokantataulua lisää (hero ja item, ehkä game (e.g. dota 2, lol, hon..))
-
 Moar tests (>90% testikattavuus)
 
 Dokumentaatio (sovelluksen käyttötarkoitus, lyhyt käyttöohje, datamalli (esim. yuml.me:llä) sekä testausperiaate (mitä testattu rspecillä, mitä jätetty
 testauksen ulkopuolelle) kuvattuna githubin wikissä
 
-Ulkoasun hiominen (esim. twitter bootstrap)
+Ulkoasun hiominen (bootstrap)
 
 Selainpuolen toiminnallisuutta?
 
-API-käyttö (dota 2 ainakin löytyy API)
+API-käyttö (dota 2 & lol apit)
 
-Parantele nykyisiä modeleita (esim. Teamissa 5 main pelaajaa ja vaikka 5 backuppia, ja herojen lisäyksen jälkeen userin sivulle
-favourite hero, favourite role (support, carry, ganker, mid..) etc.)
+herojen lisäyksen jälkeen userin sivulle favourite hero, favourite role (support, carry, ganker, mid..) etc.

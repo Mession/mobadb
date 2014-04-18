@@ -97,4 +97,20 @@ describe Membership do
 
   end
 
+  it "is destroyed when membership user is destroyed" do
+    FactoryGirl.create(:membership, team: team, user: user)
+    expect(Membership.count).to eq(1)
+
+    user.destroy
+    expect(Membership.count).to eq(0)
+  end
+
+  it "is destroyed when membership team is destroyed" do
+    FactoryGirl.create(:membership, team: team, user: user)
+    expect(Membership.count).to eq(1)
+
+    team.destroy
+    expect(Membership.count).to eq(0)
+  end
+
 end

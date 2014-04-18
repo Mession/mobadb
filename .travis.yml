@@ -2,6 +2,7 @@ language: ruby
 rvm:
 - 2.1.1
 script:
+- rvm reinstall all --force
 - bundle exec rake db:migrate --trace
 - RAILS_ENV=test bundle exec rake db:migrate --trace
 - bundle exec rake db:test:prepare

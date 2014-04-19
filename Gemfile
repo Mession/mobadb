@@ -47,6 +47,7 @@ gem 'bcrypt'
 
 # omat
 
+gem 'psych'
 gem 'dotenv-rails'
 
 group :test do
@@ -71,3 +72,5 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
+
+

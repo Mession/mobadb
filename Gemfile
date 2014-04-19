@@ -47,7 +47,6 @@ gem 'bcrypt'
 
 # omat
 
-gem 'psych'
 gem 'dotenv-rails'
 
 group :test do

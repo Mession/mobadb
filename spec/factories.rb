@@ -38,6 +38,18 @@ FactoryGirl.define do
     champion
     score
     comment "i like testing with this stub champ"
-  end    
+  end
+
+  factory :role do
+    name "tester"
+    description "a classic unit tester"    
+  end
+
+  factory :role_rating do
+    role
+    user
+    score
+    game
+  end
 
 end

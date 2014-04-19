@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-# TESTTAA MEMBERSHIPIN POISTUMISTA KUN USER TAI TEAM POISTETAAN
 describe Membership do
 
   let(:user) { FactoryGirl.create(:user) }

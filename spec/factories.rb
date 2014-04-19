@@ -23,4 +23,21 @@ FactoryGirl.define do
     team_leader false
   end
 
+  factory :champion do
+    name "testChamp"
+    game
+  end
+
+  factory :score do
+    value 1
+    description "i pwn at testing with this stub"
+  end
+
+  factory :champ_rating do
+    user
+    champion
+    score
+    comment "i like testing with this stub champ"
+  end    
+
 end

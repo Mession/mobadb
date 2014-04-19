@@ -7,4 +7,5 @@ class ChampRating < ActiveRecord::Base
   validates :user_id, presence: true, numericality: { only_integer: true }
   validates :champion_id, presence: true, numericality: { only_integer: true }
   validates :score_id, presence: true, numericality: { only_integer: true }
+  validates :game, presence: true
 end

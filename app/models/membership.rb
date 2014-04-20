@@ -9,14 +9,15 @@ class Membership < ActiveRecord::Base
   validate :no_more_members_when_full
 
   def no_multiple_leaders
-    if team_id.present? && Membership.where(team_id: self.team_id, team_leader: true).any? && team_leader == true
+    if team_id.present? and Membership.where(team_id: self.team_id, team_leader: true).any? and team_leader
       errors.add(:team_leader, "cannot have multiple!")
     end
   end
 
   def no_more_members_when_full
     max_members = Team.find_by(id: self.team_id).max_members
-    if team_id.present? && Membership.where(team_id: self.team_id).count >= max_members
+    return true if max_members.nil? # seedatessa tuli erroria, pitaa testata tata
+    if team_id.present? and Membership.where(team_id: self.team_id).count >= max_members
       errors.add(:team_id, "cannot have more than #{max_members} members!")
     end
   end

@@ -8,7 +8,7 @@
 
 game = Game.create name:"LoL"
 user = User.create username:"test", password:"test", password_confirmation:"test"
-team = Team.create name:"testTeam", year:1234, location:"testland", game: game
+team = Team.create name:"testTeam", year:2014, location:"testland", game: game
 Membership.create user:user, team:team
 
 champ = Champion.create name:"TestChamp", game:game

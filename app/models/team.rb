@@ -10,7 +10,7 @@ class Team < ActiveRecord::Base
   validate :year_not_in_future
 
   def year_not_in_future
-    if year.present? && year > Date.today.year
+    if year.present? && year > Date.today.year # mita eroa jos Time.now.year?
       errors.add(:year, "cannot be in the future!")
     end
   end

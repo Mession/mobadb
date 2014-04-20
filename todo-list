@@ -26,3 +26,8 @@ Herosivulla tietoa oman teamin preferenceistä (esim. table team membereistä ja
 Erikseen champ/hero -ratingiin understanding (osaa pelata vastaan), hauskuus (tykkää pelata sitä), oma taso (osaako pelata)
 
 bonuksena teamin sivulle textfield (chat)
+
+BUGS
+kun kirjautunut kayttaja tekee uuden userin, uusi user kirjautuu sisaan 
+	- ei ehka pitaisi nakua "new user" kun on kirjautunut?
+	- test caseja talle user featureihin/modeleihin

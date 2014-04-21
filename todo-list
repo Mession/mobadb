@@ -45,3 +45,4 @@ kun kirjautunut kayttaja tekee uuden userin, uusi user kirjautuu sisaan
 
 kun koittaa luoda teamin jossa kaikki tyhjaa niin tulee error sivu nil:ClassNIL eika kunnon validationeita
 	-KORJATTU: @games = Game.all pitaa tehda controllerissa myos ennen create metodia
+	

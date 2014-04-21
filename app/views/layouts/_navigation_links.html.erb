@@ -1,10 +1,2 @@
 <li><%= link_to 'Users', users_path %></li>
 <li><%= link_to 'Teams', teams_path %></li>
-<% if current_user.nil? %>
-    <li><%= link_to 'Sign in', new_session_path %></li>
-    <li><%= link_to 'Sign up', new_user_path %></li>
-<% else %>
-    <li><%= link_to current_user.username, current_user %></li>
-    <li><%= link_to 'Join a team', new_membership_path %></li>
-    <li><%= link_to 'Sign out', signout_path, method: :delete %></li>
-<% end %>

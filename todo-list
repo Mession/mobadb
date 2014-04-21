@@ -27,7 +27,16 @@ Erikseen champ/hero -ratingiin understanding (osaa pelata vastaan), hauskuus (ty
 
 bonuksena teamin sivulle textfield (chat)
 
-invitation systeemi (puuttuu acceptin ja declinen kasittely)
+INVITATION SYSTEEMI TEHTY
+	-poistin membershipista turhat viewt ja controllerimetodit (esim aiemmin kun meni osotteeseen /memberships niin listasi kaikki tietokannan membershipit)
+	-jos kirjautunut kayttaja on leader johonkin tiimiin, niin muiden kayttajien sivuille tulee dropdown jossa leadatut tiimit ja invite nappi
+	-invitet ilmestyy kutsutun kayttajan sivulle kun kyseinen kayttaja on kirjautunut, ja sielta voi accept (muuttaa invitation statusta) tai decline (tuhoaa membershipin)
+	-meinasin tehda kanssa "declined" statuksen, etta tiimin sivuilta olisi viela nakynyt jos joku ei halua liittya, mutta sen voi tehda bonuksena (team modeliin jai tasta nyt obsolete metodi "declined_members", ei kuitenkaan poisteta sita viela)
+	-PUUTTUU checkit controllerissa etta oikea user saa hyvaksya/poistaa inviteja/membershippeja, pelkastaan nappi nakyvyydet toimii viewssa
+	-PUUTTUU leader saa potkia muita membereita
+
+MUUTEN USER/TEAM TOIMINNALLISUUS JNE ALKAA OLLA VALMIS
+	- viela feature testeja loggaamiseen, inviteemiseen, declineemiseen, joinaamiseen, team sivujen tietoihin jne
 
 BUGS
 kun kirjautunut kayttaja tekee uuden userin, uusi user kirjautuu sisaan 

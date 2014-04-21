@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-
+<% #Bootstrap hoitaa noticet %>
 <p>
   <strong>Username:</strong>
   <%= @user.username %>
@@ -22,24 +21,27 @@
     <%= link_to('Change password', edit_user_path(@user)) %><br>
     <%= link_to 'Delete your account', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
 
-    <br>
 
-    Invitations:<br>
-    <% if @user.invitations.blank? %>
-      None at the moment!
-    <% else %>
-      <% @user.invitations.each do |inv| %>
-        <%= link_to inv.team.name, inv.team %>
-        <%= "(accept)" %>
-        <%= "(decline)" %>
+    
+    <p>
+      <strong>Invitations:</strong>
+      <br>
+      <% if @user.invitations.blank? %>
+        None at the moment!
+      <% else %>
+        <% @user.invitations.each do |inv| %>
+          <%= link_to inv.team.name, inv.team %>
+          <%= link_to 'Accept', accept_membership_path(inv), method: :post, class:"btn btn-primary" %>
+          <%= link_to 'Decline', inv, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+        <% end %>
       <% end %>
-    <% end %>
+    </p>
 
 <% end %>
 
 <% if current_user and current_user.is_leader_of_any_team and current_user != @user %>
 <hr>
-  <% # Invite systeemin pohja, lisasin columnin jo membership tauluun (aattelin 0 = declined, 1 = accepted, eli normal membership ja 2 = pending, invitetty muttei hyvaksytty, tama osa siis nakyy jos kirjautunut kayttaja on jonkun teamin leader %>  
+  <% # Invite formi, voisi tehda omaksi tiedostokis ja renderata (aattelin 0 = declined(obsolete toistaiseksi), 1 = accepted, eli normal membership ja 2 = pending, invitetty muttei hyvaksytty), tama osa siis nakyy jos kirjautunut kayttaja on jonkun teamin leader %>  
   <%= form_for(@membership) do |f| %>
     <% if @membership.errors.any? %>
       <div id="error_explanation">

@@ -3,10 +3,6 @@ class Team < ActiveRecord::Base
   has_many :members, through: :memberships, source: :user
   belongs_to :game
 
-  scope :accepted_members, -> { where invitation_status: 1 }
-  scope :invited_members, -> { where invitation_status: 2 }
-  scope :declined_members, -> { where invitation_status: 0 }
-
   validates :name, presence: true
   validates :game_id, presence: true, numericality: { only_integer: true }
   validates :year, allow_blank: true, numericality: { greater_than_or_equal_to: 2003, only_integer: true }
@@ -28,6 +24,7 @@ class Team < ActiveRecord::Base
     return get_filtered_members(2)
   end
 
+  # obsolete toistaiseksi, ei kuitenkaan poisteta koska hienot testit
   def declined_members
     return get_filtered_members(0)
   end

@@ -13,4 +13,9 @@ class ApplicationController < ActionController::Base
   def ensure_that_signed_in
     redirect_to signin_path, notice:'You should be signed in' if current_user.nil?
   end
+
+  # joku tallainen apumetodi jonka voi laittaa kutsutuksi varsinkin ennen membership controllerin metodeja
+  # def ensure_that_current_user_is(user)
+  #
+  # end
 end

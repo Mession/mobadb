@@ -1,7 +1,9 @@
 Mobadb::Application.routes.draw do
   resources :games
 
-  resources :memberships, except: [:edit]
+  resources :memberships, only: [:create, :destroy] do
+    post 'accept', on: :member
+  end
 
   resources :teams
 

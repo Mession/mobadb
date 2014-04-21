@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-
+<% #Bootstrap hoitaa noticet %>
 <p>
   <strong>Name:</strong>
   <%= @team.name %>
@@ -23,27 +22,23 @@
   <strong>Members:</strong>
   <br>
   <% @team.accepted_members.each do |member| %>
-      <%= link_to member.username, member %>
+      <li><%= link_to member.username, member %>
       <%= "(Leader)" if member.is_leader_of(@team) %>
-      <br>
+      </li>
   <% end %>
 </p>
 <% if current_user and current_user.is_member_of(@team) %>
 <p>
   <strong>Invited:</strong>
   <br>
-  <% @team.invited_members.each do |member| %>
-      <%= link_to member.username, member %>
-      <br>
+  <% if @team.invited_members.blank? %>
+    No pending invitations
+  <% else %>
+    <% @team.invited_members.each do |member| %>
+      <li><%= link_to member.username, member %></li>
+    <% end %>
   <% end %>
 </p>
-<p>
-  <strong>Declined:</strong>
-  <br>
-  <% @team.declined_members.each do |member| %>
-      <%= link_to member.username, member %>
-      <br>
-  <% end %>
 <% end %>
 
 <% if current_user and @team.members.include?(current_user) and current_user.is_leader_of(@team) %>

@@ -24,7 +24,7 @@
     <%= f.text_field :location %>
   </div>
   <div class="field">
-    <%= f.select :game_id, options_from_collection_for_select(@games, :id, :name) %>
+    <%= f.select :game_id, options_from_collection_for_select(@games, :id, :name, selected: @team.game_id) %>
   </div>
   <div class="field">
     <%= f.label :max_members %> (leave blank for no limit)<br>

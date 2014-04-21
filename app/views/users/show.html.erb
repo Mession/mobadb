@@ -21,9 +21,24 @@
 <% if current_user and current_user.id == @user.id %>
     <%= link_to('Change password', edit_user_path(@user)) %><br>
     <%= link_to 'Delete your account', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+    <br>
+
+    Invitations:<br>
+    <% if @user.invitations.blank? %>
+      None at the moment!
+    <% else %>
+      <% @user.invitations.each do |inv| %>
+        <%= link_to inv.team.name, inv.team %>
+        <%= "(accept)" %>
+        <%= "(decline)" %>
+      <% end %>
+    <% end %>
+
 <% end %>
 
 <% if current_user and current_user.is_leader_of_any_team and current_user != @user %>
+<hr>
   <% # Invite systeemin pohja, lisasin columnin jo membership tauluun (aattelin 0 = declined, 1 = accepted, eli normal membership ja 2 = pending, invitetty muttei hyvaksytty, tama osa siis nakyy jos kirjautunut kayttaja on jonkun teamin leader %>  
   <%= form_for(@membership) do |f| %>
     <% if @membership.errors.any? %>
@@ -43,6 +58,12 @@
     </div>
     <div class="field">
       <%= f.hidden_field :user_id, value: @user.id %>
+    </div>
+    <div class="field">
+      <%= f.hidden_field :invitation_status, value: 2 %>
+    </div>
+    <div class="field">
+      <%= f.hidden_field :team_leader, value: false %>
     </div>
     <div class="actions">
       <%= f.submit "Invite" %>

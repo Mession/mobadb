@@ -19,7 +19,7 @@ Favourite hero/champ and role on user page
 
 Teamin sivulla comppeja ja filtteröinti (champ ratingien perusteella, esim. kuka on paras tämän heron kanssa jne.)
 
-Teamin sivulle kuka on leader
+Teamin sivulle kuka on leader DONE
 
 Herosivulla tietoa oman teamin preferenceistä (esim. table team membereistä ja niiden ratingit tällä herolla)
 
@@ -27,7 +27,12 @@ Erikseen champ/hero -ratingiin understanding (osaa pelata vastaan), hauskuus (ty
 
 bonuksena teamin sivulle textfield (chat)
 
+invitation systeemi (puuttuu acceptin ja declinen kasittely)
+
 BUGS
 kun kirjautunut kayttaja tekee uuden userin, uusi user kirjautuu sisaan 
 	- ei ehka pitaisi nakua "new user" kun on kirjautunut?
 	- test caseja talle user featureihin/modeleihin
+
+kun koittaa luoda teamin jossa kaikki tyhjaa niin tulee error sivu nil:ClassNIL eika kunnon validationeita
+	-KORJATTU: @games = Game.all pitaa tehda controllerissa myos ennen create metodia

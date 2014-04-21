@@ -21,6 +21,7 @@ FactoryGirl.define do
     user
     team
     team_leader false
+    invitation_status 1
   end
 
   factory :champion do

@@ -1,6 +1,7 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
   before_action :ensure_that_signed_in, except: [:index, :show]
+  before_action :set_games, only: [:new, :edit, :create]
 
   # GET /teams
   # GET /teams.json
@@ -19,12 +20,10 @@ class TeamsController < ApplicationController
   # GET /teams/new
   def new
     @team = Team.new
-    @games = Game.all
   end
 
   # GET /teams/1/edit
   def edit
-    @games = Game.all
     @memberships = Membership.where(team_id: @team.id)
   end
 
@@ -32,7 +31,7 @@ class TeamsController < ApplicationController
   # POST /teams.json
   def create
     @team = Team.new(team_params)
-    @membership = Membership.new(user_id: current_user.id, team_leader: true)
+    @membership = Membership.new(user_id: current_user.id, team_leader: true, invitation_status: 1)
 
     respond_to do |format|
       if @team.save
@@ -80,5 +79,9 @@ class TeamsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def team_params
       params.require(:team).permit(:name, :year, :location, :game_id, :max_members)
+    end
+
+    def set_games
+      @games = Game.all
     end
 end

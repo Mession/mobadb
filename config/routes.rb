@@ -1,5 +1,4 @@
 Mobadb::Application.routes.draw do
-  resources :games
 
   resources :memberships, only: [:create, :destroy] do
     post 'accept', on: :member

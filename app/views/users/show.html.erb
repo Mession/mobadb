@@ -18,11 +18,6 @@
 </p>
 
 <% if current_user and current_user.id == @user.id %>
-    <%= link_to('Change password', edit_user_path(@user)) %><br>
-    <%= link_to 'Delete your account', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-
-    
     <p>
       <strong>Invitations:</strong>
       <br>
@@ -36,6 +31,9 @@
         <% end %>
       <% end %>
     </p>
+
+    <%= link_to('Change password', edit_user_path(@user)) %><br>
+    <%= link_to 'Delete your account', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
 
 <% end %>
 

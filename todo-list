@@ -3,46 +3,16 @@ Moar tests (>90% testikattavuus)
 Dokumentaatio (sovelluksen käyttötarkoitus, lyhyt käyttöohje, datamalli (esim. yuml.me:llä) sekä testausperiaate (mitä testattu rspecillä, mitä jätetty
 testauksen ulkopuolelle) kuvattuna githubin wikissä
 
-Ulkoasun hiominen (bootstrap)
-
-Selainpuolen toiminnallisuutta?
-
-API-käyttö (dota 2 & lol apit)
+API-käyttö (lol api?)
 
 herojen lisäyksen jälkeen userin sivulle favourite hero, favourite role (support, carry, ganker, mid..) etc.
 
-Create tables hero rating, hero, API
+Create table LoL API
 
-Create feature hero/champ rating, hero/champ listing thru API
+Create feature champ rating, champ listing thru API
 
-Favourite hero/champ and role on user page
+Favourite champ and role on user page
 
 Teamin sivulla comppeja ja filtteröinti (champ ratingien perusteella, esim. kuka on paras tämän heron kanssa jne.)
 
-Teamin sivulle kuka on leader DONE
-
 Herosivulla tietoa oman teamin preferenceistä (esim. table team membereistä ja niiden ratingit tällä herolla)
-
-Erikseen champ/hero -ratingiin understanding (osaa pelata vastaan), hauskuus (tykkää pelata sitä), oma taso (osaako pelata)
-
-bonuksena teamin sivulle textfield (chat)
-
-INVITATION SYSTEEMI TEHTY
-	-poistin membershipista turhat viewt ja controllerimetodit (esim aiemmin kun meni osotteeseen /memberships niin listasi kaikki tietokannan membershipit)
-	-jos kirjautunut kayttaja on leader johonkin tiimiin, niin muiden kayttajien sivuille tulee dropdown jossa leadatut tiimit ja invite nappi
-	-invitet ilmestyy kutsutun kayttajan sivulle kun kyseinen kayttaja on kirjautunut, ja sielta voi accept (muuttaa invitation statusta) tai decline (tuhoaa membershipin)
-	-meinasin tehda kanssa "declined" statuksen, etta tiimin sivuilta olisi viela nakynyt jos joku ei halua liittya, mutta sen voi tehda bonuksena (team modeliin jai tasta nyt obsolete metodi "declined_members", ei kuitenkaan poisteta sita viela)
-	-PUUTTUU checkit controllerissa etta oikea user saa hyvaksya/poistaa inviteja/membershippeja, pelkastaan nappi nakyvyydet toimii viewssa
-	-PUUTTUU leader saa potkia muita membereita
-
-MUUTEN USER/TEAM TOIMINNALLISUUS JNE ALKAA OLLA VALMIS
-	- viela feature testeja loggaamiseen, inviteemiseen, declineemiseen, joinaamiseen, team sivujen tietoihin jne
-
-BUGS
-kun kirjautunut kayttaja tekee uuden userin, uusi user kirjautuu sisaan 
-	- ei ehka pitaisi nakua "new user" kun on kirjautunut?
-	- test caseja talle user featureihin/modeleihin
-
-kun koittaa luoda teamin jossa kaikki tyhjaa niin tulee error sivu nil:ClassNIL eika kunnon validationeita
-	-KORJATTU: @games = Game.all pitaa tehda controllerissa myos ennen create metodia
-	

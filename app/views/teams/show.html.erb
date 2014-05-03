@@ -22,8 +22,12 @@
   <strong>Members:</strong>
   <br>
   <% @team.accepted_members.each do |member| %>
-      <li><%= link_to member.username, member %>
-      <%= "(Leader)" if member.is_leader_of(@team) %>
+      <li>
+        <%= link_to member.username, member %>
+        <%= "(Leader)" if member.is_leader_of(@team) %>
+        <% if current_user and current_user.is_leader_of(@team) %>
+            <%= link_to('Kick', member.memberships.where(team_id: @team.id).first, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger") unless member.is_leader_of(@team) %>
+        <% end %>
       </li>
   <% end %>
 </p>
@@ -35,7 +39,10 @@
     No pending invitations
   <% else %>
     <% @team.invited_members.each do |member| %>
-      <li><%= link_to member.username, member %></li>
+      <li>
+        <%= link_to member.username, member %>
+        <%= link_to('Cancel invitation', member.invitations.select{ |i| i.team_id == @team.id}.first, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger") if current_user.is_leader_of(@team) %>
+      </li>
     <% end %>
   <% end %>
 </p>

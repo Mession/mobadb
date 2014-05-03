@@ -1,7 +1,19 @@
-Moar tests (>90% testikattavuus)
+PAKOLLISET:
 
 Dokumentaatio (sovelluksen käyttötarkoitus, lyhyt käyttöohje, datamalli (esim. yuml.me:llä) sekä testausperiaate (mitä testattu rspecillä, mitä jätetty
 testauksen ulkopuolelle) kuvattuna githubin wikissä
+
+
+
+
+FOR TEH 5:
+
+Moar tests (>90% testikattavuus)
+
+
+
+
+FOR 2 OP:
 
 API-käyttö (LoL api?)
 

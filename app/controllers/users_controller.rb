@@ -12,6 +12,9 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @membership = Membership.new
+    @dotaratings = @user.champ_ratings.where(game_id: 1).order(:score_id)
+    @lolratings = @user.champ_ratings.where(game_id: 2).order(:score_id)
+    @roleratings = @user.role_ratings.order(:score_id)
   end
 
   # GET /users/new

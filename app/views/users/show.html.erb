@@ -16,10 +16,10 @@
 
 <strong>Roles:</strong>
 <p>
-  <% if @user.role_ratings.empty? %>
+  <% if @roleratings.empty? %>
     Hasn't given any role ratings yet.
   <% else %>
-    <% @user.role_ratings.each do |rr| %>
+    <% @roleratings.each do |rr| %>
       Is <%= rr.score.description.downcase %> at playing <%= rr.role.name.downcase %> in <%= rr.game.name %>
       <% if current_user == @user %>
         <%= link_to raw('<span class="glyphicon glyphicon-remove"></span>'), rr, method: :delete, data: { confirm: 'Are you sure?'} %>
@@ -31,10 +31,10 @@
 
 <strong>Dota 2 heroes:</strong>
 <p>
-  <% if @user.champ_ratings.where(game_id: 1).empty? %>
+  <% if @dotaratings.empty? %>
       Hasn't rated any Dota 2 heroes yet.
   <% else %>
-      <% @user.champ_ratings.where(game_id: 1).each do |cr| %>
+      <% @dotaratings.each do |cr| %>
           Is <%= cr.score.description.downcase %> at playing <%= cr.champion.name %>
           <% if current_user == @user %>
               <%= link_to raw('<span class="glyphicon glyphicon-remove"></span>'), cr, method: :delete, data: { confirm: 'Are you sure?'} %>
@@ -46,10 +46,10 @@
 
 <strong>League of Legends champions:</strong>
 <p>
-  <% if @user.champ_ratings.where(game_id: 2).empty? %>
+  <% if @lolratings.empty? %>
       Hasn't rated any League of Legends champions yet.
   <% else %>
-      <% @user.champ_ratings.where(game_id: 2).each do |cr| %>
+      <% @lolratings.each do |cr| %>
           Is <%= cr.score.description.downcase %> at playing <%= cr.champion.name %>
           <% if current_user == @user %>
               <%= link_to raw('<span class="glyphicon glyphicon-remove"></span>'), cr, method: :delete, data: { confirm: 'Are you sure?'} %>

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
+gem 'rails', '4.1.0'
 
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
@@ -25,7 +25,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder', '~> 2.0.7'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -47,7 +47,7 @@ gem 'bcrypt'
 
 # omat
 
-gem 'dotenv-rails'
+gem 'dotenv-rails', '~> 0.11.1'
 
 group :test do
   gem 'rspec-rails', '~> 2.14.1'
@@ -58,7 +58,7 @@ group :test do
   gem 'webmock'
 end
 
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.1.1.1'
 group :development do
   gem 'rails_layout'
 end

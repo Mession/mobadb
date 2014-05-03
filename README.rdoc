@@ -5,7 +5,7 @@ Wadror projekti - moba database and team builder
 {<img src="https://coveralls.io/repos/Mession/mobadb/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/Mession/mobadb]
 {<img src="https://gemnasium.com/Mession/mobadb.svg" alt="Dependency Status" />}[https://gemnasium.com/Mession/mobadb]
 
-http://mobadb.herokuapp.com
+{Heroku}[http://mobadb.herokuapp.com]
 
 {Dokumentaatio}[https://github.com/Mession/mobadb/wiki/Dokumentaatio]
 

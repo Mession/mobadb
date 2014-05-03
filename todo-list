@@ -9,7 +9,7 @@ Userin sivulla champit / herot johonkin järjestykseen? Aakkos tai score
 
 Create table LoL API
 
-Create feature champ rating, champ listing thru API
+Create champ listing thru API
 
 Teamin sivulla comppeja ja filtteröinti (champ ratingien perusteella, esim. kuka on paras tämän heron kanssa jne.)
 

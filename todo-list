@@ -2,6 +2,8 @@ PAKOLLISET:
 
 Dokumentaatio (sovelluksen käyttötarkoitus, lyhyt käyttöohje, datamalli (esim. yuml.me:llä) sekä testausperiaate (mitä testattu rspecillä, mitä jätetty
 testauksen ulkopuolelle) kuvattuna githubin wikissä
+    - käyttötarkoitus & käyttöohje tehty
+    - puuttuu datamalli & testausperiaate
 
 
 

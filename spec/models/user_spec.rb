@@ -2,10 +2,18 @@ require 'spec_helper'
 # rivit coveragea varten
 MembershipsController
 ApplicationController
+RoleRatingsController
+RolesController
 SessionsController
 TeamsController
 UsersController
+ChampRating
+Champion
+Game
 Membership
+Role
+RoleRating
+Score
 Team
 User
 

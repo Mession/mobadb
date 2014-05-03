@@ -5,13 +5,11 @@ testauksen ulkopuolelle) kuvattuna githubin wikissä
 
 API-käyttö (lol api?)
 
-herojen lisäyksen jälkeen userin sivulle favourite hero, favourite role (support, carry, ganker, mid..) etc.
+champpien lisäyksen jälkeen userin sivulle favourite champ
 
 Create table LoL API
 
 Create feature champ rating, champ listing thru API
-
-Favourite champ and role on user page
 
 Teamin sivulla comppeja ja filtteröinti (champ ratingien perusteella, esim. kuka on paras tämän heron kanssa jne.)
 

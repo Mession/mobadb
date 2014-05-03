@@ -20,6 +20,7 @@
   <% else %>
     <% @user.role_ratings.each do |rr| %>
       Is <%= rr.score.description.downcase %> at playing <%= rr.role.name.downcase %> in <%= rr.game.name %>
+      <br>
     <% end %>
   <% end %>
 </p>

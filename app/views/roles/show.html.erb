@@ -4,5 +4,9 @@
 <p>
   <%= @role.description %>
 </p>
+
+<% if current_user %>
+    <%= render 'role_rating_form' %>
+<% end %>
 <%= link_to('Edit role', edit_role_path(@role)) %>
 <%= link_to('Destroy role', @role, method: :delete, data: { confirm: 'Are you sure?' }) %>

@@ -7,7 +7,14 @@ class RolesController < ApplicationController
   end
 
   def show
-
+    rr = RoleRating.where(role_id: @role.id, user_id: current_user).first
+    if rr.nil?
+      @rolerating = RoleRating.new
+    else
+      @rolerating = rr
+    end
+    @scores = Score.all
+    @games = Game.all
   end
 
   def new

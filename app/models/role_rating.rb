@@ -8,4 +8,5 @@ class RoleRating < ActiveRecord::Base
   validates :user_id, presence: true, numericality: { only_integer: true }
   validates :score_id, presence: true, numericality: { only_integer: true }
   validates :game_id, presence: true, numericality: { only_integer: true }
+  validates_uniqueness_of :user_id, :scope => [:role_id, :game_id]
 end

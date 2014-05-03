@@ -1,0 +1,29 @@
+<%= form_for(@rolerating) do |f| %>
+    <% if @rolerating.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@rolerating.errors.count, "error") %> prohibited this role rating from being saved:</h2>
+
+          <ul>
+            <% @rolerating.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      I am <%= f.select :score_id, options_from_collection_for_select(@scores, :id, :description, selected: @rolerating.score_id) %> at this role
+    </div>
+    <div class="field">
+      I play this role in <%= f.select :game_id, options_from_collection_for_select(@games, :id, :name, selected: @rolerating.game_id) %>
+    </div>
+    <div class="field">
+      <%= f.hidden_field :user_id, value: current_user.id %>
+    </div>
+    <div class="field">
+      <%= f.hidden_field :role_id, value: @role.id %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Give rating" %>
+    </div>
+<% end %>

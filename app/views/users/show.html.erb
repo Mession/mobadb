@@ -1,8 +1,5 @@
 <% #Bootstrap hoitaa noticet %>
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+<h1><%= @user.username %></h1>
 
 <p>
   <% if @user.teams.empty? %>
@@ -13,6 +10,16 @@
     <% @user.teams.each do |team| %>
       <%= link_to team.name, team %>
       <br>
+    <% end %>
+  <% end %>
+</p>
+
+<p>
+  <% if @user.role_ratings.empty? %>
+    Hasn't given any role ratings yet.
+  <% else %>
+    <% @user.role_ratings.each do |rr| %>
+      Is <%= rr.score.description.downcase %> at playing <%= rr.role.name.downcase %> in <%= rr.game.name %>
     <% end %>
   <% end %>
 </p>

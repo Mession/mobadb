@@ -1,5 +1,6 @@
 Mobadb::Application.routes.draw do
   resources :roles
+  resources :role_ratings
 
   resources :memberships, only: [:create, :destroy] do
     post 'accept', on: :member

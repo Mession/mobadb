@@ -7,6 +7,8 @@ Wadror projekti - moba database and team builder
 
 http://mobadb.herokuapp.com
 
+{Dokumentaatio}[https://github.com/Mession/mobadb/wiki/Dokumentaatio]
+
 parityö, tekijät:
 
 {Juho Leinonen}[https://github.com/Mession]

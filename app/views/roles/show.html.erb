@@ -1,0 +1,8 @@
+<p>
+  <h2><%= @role.name %></h2>
+</p>
+<p>
+  <%= @role.description %>
+</p>
+<%= link_to('Edit role', edit_role_path(@role)) %>
+<%= link_to('Destroy role', @role, method: :delete, data: { confirm: 'Are you sure?' }) %>

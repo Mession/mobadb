@@ -1,0 +1,17 @@
+<h1>Listing <%= @list %></h1>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>Name</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @champions.each do |champion| %>
+      <tr>
+        <td><%= link_to champion.name, champion %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

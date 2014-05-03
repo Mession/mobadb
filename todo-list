@@ -3,7 +3,7 @@ Moar tests (>90% testikattavuus)
 Dokumentaatio (sovelluksen käyttötarkoitus, lyhyt käyttöohje, datamalli (esim. yuml.me:llä) sekä testausperiaate (mitä testattu rspecillä, mitä jätetty
 testauksen ulkopuolelle) kuvattuna githubin wikissä
 
-API-käyttö (lol api?)
+API-käyttö (LoL api?)
 
 champpien lisäyksen jälkeen userin sivulle favourite champ
 

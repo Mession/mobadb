@@ -1,0 +1,10 @@
+<p>
+<h2><%= @champion.name %></h2>
+</p>
+<p>
+  is a <% if @champion.game_id == 1 %> Dota 2 hero <% else %> League of Legends champion <% end %>
+</p>
+
+<% if current_user %>
+    <%= render 'champion_rating_form' %>
+<% end %>

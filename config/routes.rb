@@ -1,6 +1,10 @@
 Mobadb::Application.routes.draw do
   resources :roles
   resources :role_ratings
+  resources :champ_ratings
+  resources :champions, only: [:show]
+  get 'heroes', to: 'champions#heroes'
+  get 'champions', to: 'champions#champions'
 
   resources :memberships, only: [:create, :destroy] do
     post 'accept', on: :member

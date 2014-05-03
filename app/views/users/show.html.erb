@@ -29,6 +29,36 @@
   <% end %>
 </p>
 
+<strong>Dota 2 heroes:</strong>
+<p>
+  <% if @user.champ_ratings.where(game_id: 1).empty? %>
+      Hasn't rated any Dota 2 heroes yet.
+  <% else %>
+      <% @user.champ_ratings.where(game_id: 1).each do |cr| %>
+          Is <%= cr.score.description.downcase %> at playing <%= cr.champion.name %>
+          <% if current_user == @user %>
+              <%= link_to raw('<span class="glyphicon glyphicon-remove"></span>'), cr, method: :delete, data: { confirm: 'Are you sure?'} %>
+          <% end %>
+          <br>
+      <% end %>
+  <% end %>
+</p>
+
+<strong>League of Legends champions:</strong>
+<p>
+  <% if @user.champ_ratings.where(game_id: 2).empty? %>
+      Hasn't rated any League of Legends champions yet.
+  <% else %>
+      <% @user.champ_ratings.where(game_id: 2).each do |cr| %>
+          Is <%= cr.score.description.downcase %> at playing <%= cr.champion.name %>
+          <% if current_user == @user %>
+              <%= link_to raw('<span class="glyphicon glyphicon-remove"></span>'), cr, method: :delete, data: { confirm: 'Are you sure?'} %>
+          <% end %>
+          <br>
+      <% end %>
+  <% end %>
+</p>
+
 <% if current_user and current_user.id == @user.id %>
     <p>
       <strong>Invitations:</strong>

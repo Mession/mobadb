@@ -1,0 +1,33 @@
+<%= form_for(@champrating) do |f| %>
+    <% if @champrating.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@champrating.errors.count, "error") %> prohibited this rating from being saved:</h2>
+
+          <ul>
+            <% @champrating.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      I am <%= f.select :score_id, options_from_collection_for_select(@scores, :id, :description, selected: @champrating.score_id) %> at this <%= @entryname %>
+    </div>
+    <div class="field">
+      <%= f.label :comment %><br>
+      <%= f.text_field :comment %>
+    </div>
+    <div class="field">
+      <%= f.hidden_field :user_id, value: current_user.id %>
+    </div>
+    <div class="field">
+      <%= f.hidden_field :champion_id, value: @champion.id %>
+    </div>
+    <div class="field">
+      <%= f.hidden_field :game_id, value: @champion.game_id %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Give rating" %>
+    </div>
+<% end %>

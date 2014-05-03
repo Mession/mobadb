@@ -20,6 +20,9 @@
   <% else %>
     <% @user.role_ratings.each do |rr| %>
       Is <%= rr.score.description.downcase %> at playing <%= rr.role.name.downcase %> in <%= rr.game.name %>
+      <% if current_user == @user %>
+        <%= link_to raw('<span class="glyphicon glyphicon-remove"></span>'), rr, method: :delete, data: { confirm: 'Are you sure?'} %>
+      <% end %>
       <br>
     <% end %>
   <% end %>

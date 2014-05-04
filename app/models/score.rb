@@ -10,15 +10,15 @@ class Score < ActiveRecord::Base
 
   # viimehetkella keksitty hassu pikku lisa arvojen visualisointiin
   def color_hex_code
-  	if self.value == 1
+  	if self.value == 5
   		return "#FF0000"
-  	elsif self.value == 2
+  	elsif self.value == 4
   		return "#FF8000"
   	elsif self.value == 3
   		return "#FFF000"
-  	elsif self.value == 4
+  	elsif self.value == 2
   		return "#80FF00"
-  	elsif self.value == 5
+  	elsif self.value == 1
   		return "#10FF00"
   	end
   	return ""

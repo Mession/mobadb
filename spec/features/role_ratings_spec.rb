@@ -36,7 +36,7 @@ describe "Role Rating" do
 
     it "can be destroyed" do
       page.driver.submit :delete, "/role_ratings/#{RoleRating.first.id}", {}
-      click_link('Pena')
+      click_link('My Page')
       expect(page).not_to have_content 'Good'
       expect(page).not_to have_content 'tester'
     end

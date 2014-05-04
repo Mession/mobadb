@@ -45,7 +45,7 @@ describe "Membership" do
       it "can be accepted" do
         click_on 'Accept'
         visit teams_path
-        click_on 'Tiimi'
+        click_on 'Tiimi', match: :first
         expect(page).to have_content 'Seppo'
       end
 

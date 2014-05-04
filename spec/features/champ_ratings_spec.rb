@@ -34,7 +34,7 @@ describe "Champ Rating" do
 
     it "can be destroyed" do
       page.driver.submit :delete, "/champ_ratings/#{ChampRating.first.id}", {}
-      click_link('Pena')
+      click_link('My Page')
       expect(page).not_to have_content 'Good'
       expect(page).not_to have_content 'testChamp'
     end

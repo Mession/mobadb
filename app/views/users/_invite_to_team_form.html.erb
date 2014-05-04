@@ -1,7 +1,8 @@
 <% if current_user and current_user.is_leader_of_any_team and current_user != @user %>
   <div class="row">
-    <div class="col-md-3">
-      <% # Invite formi, voisi tehda omaksi tiedostokis ja renderata (aattelin 0 = declined(obsolete toistaiseksi), 1 = accepted, eli normal membership ja 2 = pending, invitetty muttei hyvaksytty), tama osa siis nakyy jos kirjautunut kayttaja on jonkun teamin leader %>  
+    <div class="col-md-4">
+      <% # Invite formi, voisi tehda omaksi tiedostokis ja renderata (aattelin 0 = declined(obsolete toistaiseksi), 1 = accepted, eli normal membership ja 2 = pending, invitetty muttei hyvaksytty), tama osa siis nakyy jos kirjautunut kayttaja on jonkun teamin leader %>
+      <h3>Invite this player to your team:</h3>
       <%= form_for(@membership) do |f| %>
         <% if @membership.errors.any? %>
           <div id="error_explanation">

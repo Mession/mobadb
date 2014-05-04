@@ -1,25 +1,23 @@
-<% #Bootstrap hoitaa noticet %>
+
 <div class="row">
-  <div class="col-md-4">
-    <p>
-      <strong>Name:</strong>
-      <%= @team.name %>
-    </p>
+  <div class="col-md-2">
+  <h1><%= @team.name %></h1>
+    <table class="table table-striped">
+      <tr>
+        <td><strong>Game:</strong></td>
+        <td><%= @team.game.name %></td>
+      </tr>
 
-    <p>
-      <strong>Game:</strong>
-      <%= @team.game.name %>
-    </p>
+      <tr>
+        <td><strong>Year:</strong></td>
+        <td><%= @team.year %></td>
+      </tr>
 
-    <p>
-      <strong>Year:</strong>
-      <%= @team.year %>
-    </p>
-
-    <p>
-      <strong>Location:</strong>
-      <%= @team.location %>
-    </p>
+      <tr>
+        <td><strong>Location:</strong></td>
+        <td><%= @team.location %></td>
+      </tr>
+    </table>
 
     <% if current_user and @team.accepted_members.include?(current_user) and current_user.is_leader_of(@team) %>
         <%= link_to('Edit team', edit_team_path(@team), class:"btn btn-sm btn-warning" ) %>

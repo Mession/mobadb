@@ -12,6 +12,8 @@
 
 <%= render "invite_to_team_form" %>
 
-<%= render partial: "game_ratings", collection: @games, as: :game %>
+<% if current_user and current_user.id == @user.id %>
+  <%= render partial: "game_ratings", collection: @games, as: :game %>
+<% end %>
 
 

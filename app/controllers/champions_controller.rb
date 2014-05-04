@@ -4,13 +4,13 @@ class ChampionsController < ApplicationController
 
   def heroes
     @champions = Champion.where(game_id: 1).order(:name)
-    @list = 'heroes'
+    @list = 'Heroes'
     render :'champions/index'
   end
 
   def champions
     @champions = Champion.where(game_id: 2)
-    @list = 'champions'
+    @list = 'Champions'
     render 'champions/index'
   end
 

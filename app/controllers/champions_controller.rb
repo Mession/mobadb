@@ -9,7 +9,7 @@ class ChampionsController < ApplicationController
   end
 
   def champions
-    @champions = Champion.where(game_id: 2)
+    @champions = Champion.where(game_id: 2).order(:name)
     @list = 'Champions'
     render 'champions/index'
   end

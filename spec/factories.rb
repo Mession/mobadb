@@ -31,7 +31,7 @@ FactoryGirl.define do
 
   factory :score do
     value 1
-    description "i pwn at testing with this stub"
+    description "Good"
   end
 
   factory :champ_rating do

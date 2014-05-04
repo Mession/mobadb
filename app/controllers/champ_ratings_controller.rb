@@ -2,18 +2,6 @@ class ChampRatingsController < ApplicationController
   before_action :set_champ_rating, only: [:show, :edit, :update, :destroy]
   before_action :ensure_that_signed_in, except: [:index, :show]
 
-  def index
-    @champ_ratings = ChampRating.all
-  end
-
-  def show
-
-  end
-
-  def new
-    @champrating = ChampRating.new
-  end
-
   def edit
 
   end

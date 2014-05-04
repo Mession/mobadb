@@ -3,7 +3,7 @@ class TeamsController < ApplicationController
   before_action :set_team_role_ratings, only: [:show]
   before_action :set_team_character_ratings, only: [:show]
   before_action :ensure_that_signed_in, except: [:index, :show]
-  before_action :set_games, only: [:new, :edit, :create]
+  before_action :set_games, only: [:new, :edit, :create, :update]
 
   # GET /teams
   # GET /teams.json

@@ -1,7 +1,7 @@
 Mobadb::Application.routes.draw do
   resources :roles
-  resources :role_ratings
-  resources :champ_ratings
+  resources :role_ratings, except: [:index, :new, :show]
+  resources :champ_ratings, except: [:index, :new, :show]
   resources :champions, only: [:show]
   get 'heroes', to: 'champions#heroes'
   get 'champions', to: 'champions#champions'

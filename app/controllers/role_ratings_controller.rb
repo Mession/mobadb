@@ -2,18 +2,6 @@ class RoleRatingsController < ApplicationController
   before_action :set_role_rating, only: [:show, :edit, :update, :destroy]
   before_action :ensure_that_signed_in, except: [:index, :show]
 
-  def index
-    @role_ratings = RoleRating.all
-  end
-
-  def show
-
-  end
-
-  def new
-    @rolerating = RoleRating.new
-  end
-
   def edit
 
   end

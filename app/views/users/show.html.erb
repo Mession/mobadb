@@ -12,47 +12,6 @@
 
 <%= render "invite_to_team_form" %>
 
-<strong>Roles:</strong>
-<p>
-  <% if @roleratings.empty? %>
-    Hasn't given any role ratings yet.
-  <% else %>
-    <% @roleratings.each do |rr| %>
-      Is <%= rr.score.description.downcase %> at playing <%= rr.role.name.downcase %> in <%= rr.game.name %>
-      <% if current_user == @user %>
-        <%= link_to raw('<span class="glyphicon glyphicon-remove"></span>'), rr, method: :delete, data: { confirm: 'Are you sure?'} %>
-      <% end %>
-      <br>
-    <% end %>
-  <% end %>
-</p>
+<%= render partial: "game_ratings", collection: @games, as: :game %>
 
-<strong>Dota 2 heroes:</strong>
-<p>
-  <% if @dotaratings.empty? %>
-      Hasn't rated any Dota 2 heroes yet.
-  <% else %>
-      <% @dotaratings.each do |cr| %>
-          Is <%= cr.score.description.downcase %> at playing <%= cr.champion.name %>
-          <% if current_user == @user %>
-              <%= link_to raw('<span class="glyphicon glyphicon-remove"></span>'), cr, method: :delete, data: { confirm: 'Are you sure?'} %>
-          <% end %>
-          <br>
-      <% end %>
-  <% end %>
-</p>
 
-<strong>League of Legends champions:</strong>
-<p>
-  <% if @lolratings.empty? %>
-      Hasn't rated any League of Legends champions yet.
-  <% else %>
-      <% @lolratings.each do |cr| %>
-          Is <%= cr.score.description.downcase %> at playing <%= cr.champion.name %>
-          <% if current_user == @user %>
-              <%= link_to raw('<span class="glyphicon glyphicon-remove"></span>'), cr, method: :delete, data: { confirm: 'Are you sure?'} %>
-          <% end %>
-          <br>
-      <% end %>
-  <% end %>
-</p>

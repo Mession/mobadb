@@ -61,6 +61,6 @@ class RoleRatingsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def role_rating_params
-    params.require(:role_rating).permit(:role_id, :user_id, :score_id, :game_id)
+    params.require(:role_rating).permit(:role_id, :user_id, :score_id, :game_id, :comment)
   end
 end

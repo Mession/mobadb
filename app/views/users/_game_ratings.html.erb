@@ -1,0 +1,63 @@
+<div class="row">
+<h3>Your ratings for <%= game.name %></h3>
+  <div class="col-md-4">
+   <table class="table table-striped">
+     <thead>
+       <th>Champ/Hero</th>
+       <th>Skill Level</th>
+       <th>Comment</th>
+       <th></th>
+     </thead>
+     <tbody>
+      <% if @character_ratings.blank? %>
+          <tr><td>No ratings yet!</td></tr>
+        <% else %>
+          <% @character_ratings.where(game: game).each do |cr| %>
+            <tr>
+              <td><%= link_to cr.champion.name, cr.champion %></td>
+              <td><%= cr.score.description %></td>
+              <td><%= cr.comment %></td>
+              <% if current_user == @user %>
+                <td>
+                <%= link_to raw('<span class="glyphicon glyphicon-remove"></span>'), cr, method: :delete, data: { confirm: 'Are you sure?'} %>
+                </td>
+              <% end %>
+            </tr>
+          <% end %>
+        <% end %>
+     </tbody>
+   </table> 
+  </div>
+
+
+  <div class="col-md-4">
+   <table class="table table-striped">
+     <thead>
+       <th>Role</th>
+       <th>Skill Level</th>
+       <th>Comment</th>
+       <th></th>
+     </thead>
+     <tbody>
+      <% if @role_ratings.blank? %>
+          <tr><td>No ratings yet!</td></tr>
+        <% else %>
+          <% @role_ratings.where(game: game).each do |rr| %>
+            <tr>
+              <td><%= link_to rr.role.name, rr.role %></td>
+              <td><%= rr.score.description %></td>
+              <td><%= rr.comment %></td>
+              <% if current_user == @user %>
+                <td>
+                <%= link_to raw('<span class="glyphicon glyphicon-remove"></span>'), rr, method: :delete, data: { confirm: 'Are you sure?'} %>
+                </td>
+              <% end %>
+            </tr>
+          <% end %>
+        <% end %>
+     </tbody>
+   </table> 
+  </div>
+
+  
+</div>

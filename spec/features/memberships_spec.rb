@@ -23,6 +23,14 @@ describe "Membership" do
       click_button 'Invite'
     end
 
+    it "cannot be created again (no duplicates)" do
+      visit users_path
+      click_link 'Seppo'
+      select "Tiimi", from: "membership[team_id]"
+      click_button 'Invite'
+      expect(page).to have_content 'Membership or invitation already exists!'
+    end
+
     it "can be cancelled" do
       expect{
         click_on 'Cancel invitation'

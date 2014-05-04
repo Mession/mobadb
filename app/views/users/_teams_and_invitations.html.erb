@@ -1,0 +1,48 @@
+<div class="row">
+
+  <div class="col-md-4">
+   <table class="table table-striped">
+     <thead>
+       <th>Teams:</th>
+     </thead>
+     <tbody>
+      <% if @user.teams.empty? %>
+          <tr><td>Doesn't belong to any teams yet.</td></tr>
+        <% else %>
+          <% @user.teams.each do |team| %>
+            <tr><td><%= link_to team.name, team %></td></tr>
+          <% end %>
+        <% end %>
+     </tbody>
+   </table> 
+  </div>
+
+
+  <% if current_user and current_user.id == @user.id %>
+    <div class="col-md-4">
+     <table class="table table-striped">
+       <thead>
+         <th>Invitations:</th>
+         <th></th>
+         <th></th>
+       </thead>
+       <tbody>
+
+          <% if @user.invitations.blank? %>
+            <tr><td>None at the moment!</td></tr>
+          <% else %>
+            <% @user.invitations.each do |inv| %>
+              <tr>
+                <td><%= link_to inv.team.name, inv.team %></td>
+                <td><%= link_to 'Accept', accept_membership_path(inv), method: :post, class:"btn btn-xs btn-primary" %></td>
+                <td><%= link_to 'Decline', inv, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-xs btn-danger" %></td>
+              </tr>
+            <% end %>
+          <% end %>
+
+       </tbody>
+     </table> 
+    </div>
+  <% end %>
+  
+</div>

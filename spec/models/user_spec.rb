@@ -45,6 +45,7 @@ describe User do
     let(:team2){ FactoryGirl.create(:team, name: "testTeam 2") }
     let(:membership_leader){ FactoryGirl.create(:membership, user: user, team: team, team_leader: true) }
     let(:membership_normal){ FactoryGirl.create(:membership, user: user, team: team, team_leader: false) }
+    let(:invitation){ FactoryGirl.create(:membership, user: user, team: team2, team_leader: false, invitation_status: 2)}
 
     describe "is_leader_of_any_team" do
 
@@ -113,12 +114,16 @@ describe User do
 
       it "returns false when not a member of given team but is a member of another" do
         membership_normal
-        team2 = FactoryGirl.create(:team, name: "testTeam 2")
-
+        team2
 
         expect(user.is_member_of(team2)).to be(false)
       end
 
+      it "returns false when invited to team but not yet accepted" do
+        invitation
+
+        expect(user.is_member_of(team2)).to be(false)
+      end
     end
 
     describe "owned_teams" do
@@ -154,7 +159,6 @@ describe User do
     end
 
     describe "invitations" do
-      let(:invitation){ FactoryGirl.create(:membership, user: user, team: team2, team_leader: false, invitation_status: 2)}
 
       it "returns 0 if no invitations and not a member of any team" do
         expect(user.invitations.count).to eq(0)
@@ -183,6 +187,40 @@ describe User do
         invitation
 
         expect(user.invitations.include?(invitation)).to be(true)
+      end
+
+    end
+
+    describe "teams" do
+      let(:invitation){ FactoryGirl.create(:membership, user: user, team: team2, team_leader: false, invitation_status: 2)}
+
+      it "returns 0 if no invitations and not a member of any team" do
+        expect(user.teams.count).to eq(0)
+      end
+
+      it "returns 1 if no invitations and a member of a team" do
+        membership_normal
+
+        expect(user.teams.count).to eq(1)
+      end
+
+      it "returns 0 when there is a invitation and no memberships" do
+        invitation
+
+        expect(user.teams.count).to eq(0)
+      end
+
+      it "returns 1 when there is a invitation and user is a member of a team" do
+        membership_normal
+        invitation
+
+        expect(user.teams.count).to eq(1)
+      end
+
+      it "has correct team when there is one membership" do
+        membership_normal
+
+        expect(user.teams.include?(membership_normal.team)).to be(true)
       end
 
     end

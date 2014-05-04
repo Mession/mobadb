@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true, length: { minimum: 3 }, length: { maximum: 15 }
 
   has_many :memberships, dependent: :destroy
-  has_many :teams, through: :memberships
+  has_many :teams_invited_to_and_member_of, through: :memberships, source: :teams
   has_many :role_ratings, dependent: :destroy
   has_many :roles, through: :role_ratings
   has_many :champ_ratings, dependent: :destroy
@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 
   def is_member_of(given_team)
   	memberships.each do |m|
-  		return true if m.team == given_team
+  		return true if m.team == given_team and m.invitation_status == 1
   	end
   	return false
   end
@@ -48,6 +48,15 @@ class User < ActiveRecord::Base
       invitations_array.push m if m.invitation_status == 2
     end
     return invitations_array
+  end
+
+  def teams
+    teams_array = Array.new
+
+    memberships.each do |m|
+      teams_array.push m.team if m.invitation_status == 1
+    end
+    return teams_array
   end
 
 end

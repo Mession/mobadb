@@ -1,56 +1,34 @@
 <% #Bootstrap hoitaa noticet %>
-<p>
-  <strong>Name:</strong>
-  <%= @team.name %>
-</p>
+<div class="row">
+  <div class="col-md-4">
+    <p>
+      <strong>Name:</strong>
+      <%= @team.name %>
+    </p>
 
-<p>
-  is a <%= @team.game.name %> team
-</p>
+    <p>
+      <strong>Game:</strong>
+      <%= @team.game.name %>
+    </p>
 
-<p>
-  <strong>Year:</strong>
-  <%= @team.year %>
-</p>
+    <p>
+      <strong>Year:</strong>
+      <%= @team.year %>
+    </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @team.location %>
-</p>
+    <p>
+      <strong>Location:</strong>
+      <%= @team.location %>
+    </p>
 
-<p>
-  <strong>Members:</strong>
-  <br>
-  <% @team.accepted_members.each do |member| %>
-      <li>
-        <%= link_to member.username, member %>
-        <%= "(Leader)" if member.is_leader_of(@team) %>
-        <% if current_user and current_user.is_leader_of(@team) %>
-            <%= link_to('Kick', member.memberships.where(team_id: @team.id).first, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger") unless member.is_leader_of(@team) %>
-        <% end %>
-      </li>
-  <% end %>
-</p>
-<% if current_user and current_user.is_member_of(@team) %>
-<p>
-  <strong>Invited:</strong>
-  <br>
-  <% if @team.invited_members.blank? %>
-    No pending invitations
-  <% else %>
-    <% @team.invited_members.each do |member| %>
-      <li>
-        <%= link_to member.username, member %>
-        <%= link_to('Cancel invitation', member.invitations.select{ |i| i.team_id == @team.id}.first, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger") if current_user.is_leader_of(@team) %>
-      </li>
+    <% if current_user and @team.accepted_members.include?(current_user) and current_user.is_leader_of(@team) %>
+        <%= link_to('Edit team', edit_team_path(@team), class:"btn btn-sm btn-warning" ) %>
+        <%= link_to('Destroy team', @team, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-sm btn-danger" ) %>
+    <% elsif current_user and @team.accepted_members.include?(current_user) %>
+        <%= link_to('Leave team', @membership, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-sm btn-danger" ) if current_user.id == @membership.user_id %>
     <% end %>
-  <% end %>
-</p>
-<% end %>
 
-<% if current_user and @team.members.include?(current_user) and current_user.is_leader_of(@team) %>
-    <%= link_to('Edit team', edit_team_path(@team)) %>
-    <%= link_to('Destroy team', @team, method: :delete, data: { confirm: 'Are you sure?' }) %>
-<% elsif current_user and @team.members.include?(current_user) %>
-    <%= link_to('Leave team', @membership, method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == @membership.user_id %>
-<% end %>
+  </div>
+</div>
+
+<%= render "members_and_invitations" %>

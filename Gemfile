@@ -49,6 +49,9 @@ gem 'bcrypt'
 
 gem 'dotenv-rails', '~> 0.11.1'
 
+# rspec tartti tata
+gem 'psych'
+
 group :test do
   gem 'rspec-rails', '~> 2.14.1'
   gem 'factory_girl_rails'

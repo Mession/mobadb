@@ -1,18 +1,16 @@
 <% #Bootstrap hoitaa noticet %>
 <h1><%= @user.username %></h1>
 
-<p>
-  <% if @user.teams.empty? %>
-    Doesn't belong to any teams yet.
-  <% else %>
-    Belongs to the following teams:
-      <br>
-    <% @user.teams.each do |team| %>
-      <%= link_to team.name, team %>
-      <br>
-    <% end %>
-  <% end %>
-</p>
+<% if current_user and current_user.id == @user.id %>
+
+    <%= link_to('Change password', edit_user_path(@user)) %><br>
+    <%= link_to 'Delete your account', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<% end %>
+
+<%= render "teams_and_invitations" %>
+
+<%= render "invite_to_team_form" %>
 
 <strong>Roles:</strong>
 <p>
@@ -58,58 +56,3 @@
       <% end %>
   <% end %>
 </p>
-
-<% if current_user and current_user.id == @user.id %>
-    <p>
-      <strong>Invitations:</strong>
-      <br>
-      <% if @user.invitations.blank? %>
-        None at the moment!
-      <% else %>
-        <% @user.invitations.each do |inv| %>
-          <%= link_to inv.team.name, inv.team %>
-          <%= link_to 'Accept', accept_membership_path(inv), method: :post, class:"btn btn-primary" %>
-          <%= link_to 'Decline', inv, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
-        <% end %>
-      <% end %>
-    </p>
-
-    <%= link_to('Change password', edit_user_path(@user)) %><br>
-    <%= link_to 'Delete your account', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-<% end %>
-
-<% if current_user and current_user.is_leader_of_any_team and current_user != @user %>
-<hr>
-  <% # Invite formi, voisi tehda omaksi tiedostokis ja renderata (aattelin 0 = declined(obsolete toistaiseksi), 1 = accepted, eli normal membership ja 2 = pending, invitetty muttei hyvaksytty), tama osa siis nakyy jos kirjautunut kayttaja on jonkun teamin leader %>  
-  <%= form_for(@membership) do |f| %>
-    <% if @membership.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@membership.errors.count, "error") %> prohibited this membership from being saved:</h2>
-  
-        <ul>
-        <% @membership.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-  
-    <div class="field">
-      <%= f.select :team_id, options_from_collection_for_select(current_user.owned_teams, :id, :name) %>
-    </div>
-    <div class="field">
-      <%= f.hidden_field :user_id, value: @user.id %>
-    </div>
-    <div class="field">
-      <%= f.hidden_field :invitation_status, value: 2 %>
-    </div>
-    <div class="field">
-      <%= f.hidden_field :team_leader, value: false %>
-    </div>
-    <div class="actions">
-      <%= f.submit "Invite" %>
-    </div>
-  <% end %>
-
-<% end %>

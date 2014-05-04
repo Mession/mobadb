@@ -1,0 +1,37 @@
+<% if current_user and current_user.is_leader_of_any_team and current_user != @user %>
+  <div class="row">
+    <div class="col-md-3">
+      <% # Invite formi, voisi tehda omaksi tiedostokis ja renderata (aattelin 0 = declined(obsolete toistaiseksi), 1 = accepted, eli normal membership ja 2 = pending, invitetty muttei hyvaksytty), tama osa siis nakyy jos kirjautunut kayttaja on jonkun teamin leader %>  
+      <%= form_for(@membership) do |f| %>
+        <% if @membership.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@membership.errors.count, "error") %> prohibited this membership from being saved:</h2>
+      
+            <ul>
+            <% @membership.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+
+          </div>
+        <% end %>
+      
+        <div class="field">
+          <%= f.select :team_id, options_from_collection_for_select(current_user.owned_teams, :id, :name) %>
+        </div>
+        <div class="field">
+          <%= f.hidden_field :user_id, value: @user.id %>
+        </div>
+        <div class="field">
+          <%= f.hidden_field :invitation_status, value: 2 %>
+        </div>
+        <div class="field">
+          <%= f.hidden_field :team_leader, value: false %>
+        </div>
+        <div class="actions">
+          <%= f.submit "Invite" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

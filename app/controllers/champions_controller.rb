@@ -1,5 +1,5 @@
 class ChampionsController < ApplicationController
-  before_action :set_champion, only: [:show, :edit, :update, :destroy]
+  before_action :set_champion, only: [:show]
   before_action :ensure_that_signed_in, except: [:show, :heroes, :champions]
 
   def heroes
@@ -25,43 +25,6 @@ class ChampionsController < ApplicationController
     @entryname = 'hero'
     if @champion.game.id == 2
       @entryname = 'champion'
-    end
-  end
-
-  def new
-    @champion = Champion.new
-  end
-
-  def edit
-
-  end
-
-  def create
-    @champion = Champion.new(champion_params)
-
-    respond_to do |format|
-      if @champion.save
-        format.html { redirect_to @champion, notice: 'Champion was successfully created.' }
-      else
-        format.html { render action: 'new' }
-      end
-    end
-  end
-
-  def update
-    respond_to do |format|
-      if @champion.update(champion_params)
-        format.html { redirect_to @champion, notice: 'Champion was successfully updated.' }
-      else
-        format.html { render action: 'edit' }
-      end
-    end
-  end
-
-  def destroy
-    @champion.destroy
-    respond_to do |format|
-      format.html { redirect_to champions_url }
     end
   end
 

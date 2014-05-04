@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   validates :username, presence: true, uniqueness: true, length: { minimum: 3 }, length: { maximum: 15 }
+  validates :password, presence: true, allow_blank: false, length: { minimum: 3 }
 
   has_many :memberships, dependent: :destroy
   has_many :teams_invited_to_and_member_of, through: :memberships, source: :teams

@@ -20,7 +20,7 @@
             <tr>
               <td><%= link_to cr.champion.name, cr.champion %></td>
               <td><%= link_to cr.user.username, cr.user %></td>
-              <td><%= cr.score.description %></td>
+              <td style="background: <%= cr.score.color_hex_code %>"><%= cr.score.description %></td>
               <td><%= cr.comment %></td>
             </tr>
           <% end %>
@@ -46,7 +46,7 @@
             <tr>
               <td><%= link_to rr.role.name, rr.role %></td>
               <td><%= link_to rr.user.username, rr.user %></td>
-              <td><%= rr.score.description %></td>
+              <td style="background: <%= rr.score.color_hex_code %>"><%= rr.score.description %></td>
               <td><%= rr.comment %></td>
             </tr>
           <% end %>

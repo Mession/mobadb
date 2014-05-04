@@ -1,0 +1,55 @@
+<div class="row">
+<h3>Member Ratings</h3>
+  <div class="col-md-4">
+   <table class="table table-striped">
+     <thead>
+       <th><%= link_to @team.game.character_called, team_path(@team, character_order:"character") %></th>
+       <th><%= link_to "User", team_path(@team, character_order:"user") %></th>
+       <th><%= link_to "Skill Level", team_path(@team, character_order:"score") %></th>
+       <th>Comment</th>
+     </thead>
+     <tbody>
+      <% if @character_ratings.blank? %>
+          <tr><td>No ratings yet!</td></tr>
+        <% else %>
+          <% @character_ratings.each do |cr| %>
+            <tr>
+              <td><%= link_to cr.champion.name, cr.champion %></td>
+              <td><%= link_to cr.user.username, cr.user %></td>
+              <td><%= cr.score.description %></td>
+              <td><%= cr.comment %></td>
+            </tr>
+          <% end %>
+        <% end %>
+     </tbody>
+   </table> 
+  </div>
+
+
+  <div class="col-md-4">
+   <table class="table table-striped">
+     <thead>
+       <th><%= link_to "Role", team_path(@team, role_order:"role") %></th>
+       <th><%= link_to "User", team_path(@team, role_order:"user") %></th>
+       <th><%= link_to "Skill Level", team_path(@team, role_order:"score") %></th>
+       <th>Comment</th>
+     </thead>
+     <tbody>
+      <% if @role_ratings.blank? %>
+          <tr><td>No ratings yet!</td></tr>
+        <% else %>
+          <% @role_ratings.each do |rr| %>
+            <tr>
+              <td><%= link_to rr.role.name, rr.role %></td>
+              <td><%= link_to rr.user.username, rr.user %></td>
+              <td><%= rr.score.description %></td>
+              <td><%= rr.comment %></td>
+            </tr>
+          <% end %>
+        <% end %>
+     </tbody>
+   </table> 
+  </div>
+
+  
+</div>

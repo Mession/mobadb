@@ -49,13 +49,69 @@ describe Team do
   end
 
   describe "method" do
+    let(:game){ FactoryGirl.create(:game) }
+    let(:game2){ FactoryGirl.create(:game, name:"testGame2") }
+
     let(:user){ FactoryGirl.create(:user) }
     let(:user2){ FactoryGirl.create(:user, username: "test2") }
-    let(:team){ FactoryGirl.create(:team) }
-    let(:team2){ FactoryGirl.create(:team, name: "testteam2") }
+
+    let(:team){ FactoryGirl.create(:team, game: game) }
+    let(:team2){ FactoryGirl.create(:team, name: "testteam2", game: game2) }
+
     let(:membership){ FactoryGirl.create(:membership, team: team, user: user, invitation_status: 1, team_leader: true) }
     let(:membership_invited){ FactoryGirl.create(:membership, team: team, user: user2, invitation_status: 2, team_leader: false) }
     let(:membership_declined){ FactoryGirl.create(:membership, team: team, user: user2, invitation_status: 0, team_leader: false) }
+
+    let(:role_rating){ FactoryGirl.create(:role_rating, user: user, game: game)}
+    let(:role_rating2){ FactoryGirl.create(:role_rating, user: user, game: game2)}
+
+    let(:character_rating){ FactoryGirl.create(:champ_rating, user: user, game: game)}
+    let(:character_rating2){ FactoryGirl.create(:champ_rating, user: user, game: game2)}
+
+
+    describe "get_team_role_ratings" do
+      it "return nothing when team members haven't rated anything yet" do
+        membership
+
+        expect(team.get_team_role_ratings.count).to eq(0);
+      end
+
+      it "returns 1 rating when one member has one rating" do
+        membership
+        role_rating
+
+        expect(team.get_team_role_ratings.count).to eq(1)
+      end
+
+      it "return 0 when member has a rating for a different game" do
+        membership
+        role_rating2
+
+        expect(team.get_team_role_ratings.count).to eq(0)
+      end
+    end
+
+    describe "get_team_character_ratings" do
+      it "return nothing when team members haven't rated anything yet" do
+        membership
+
+        expect(team.get_team_character_ratings.count).to eq(0);
+      end
+
+      it "returns 1 rating when one member has one rating" do
+        membership
+        character_rating
+
+        expect(team.get_team_character_ratings.count).to eq(1)
+      end
+
+      it "return 0 when member has a rating for a different game" do
+        membership
+        character_rating2
+
+        expect(team.get_team_character_ratings.count).to eq(0)
+      end
+    end
 
     describe "accepted_members" do
       it "must always return atleast 1 member (because a team must always have a leader)" do

@@ -29,6 +29,30 @@ class Team < ActiveRecord::Base
     return get_filtered_members(0)
   end
 
+  def get_team_role_ratings
+    role_ratings = Array.new
+
+    accepted_members.each do |member|
+      member.role_ratings.each do |rating|
+        role_ratings.push rating if rating.game_id == self.game_id
+      end
+    end
+
+    return role_ratings
+  end
+
+  def get_team_character_ratings
+    character_ratings = Array.new
+
+    accepted_members.each do |member|
+      member.champ_ratings.each do |rating|
+        character_ratings.push rating if rating.game == self.game
+      end
+    end
+
+    return character_ratings
+  end
+
   private
     def get_filtered_members (invitation_status)
       m = self.memberships

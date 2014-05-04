@@ -1,5 +1,7 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :set_team_role_ratings, only: [:show]
+  before_action :set_team_character_ratings, only: [:show]
   before_action :ensure_that_signed_in, except: [:index, :show]
   before_action :set_games, only: [:new, :edit, :create]
 
@@ -78,5 +80,25 @@ class TeamsController < ApplicationController
 
     def set_games
       @games = Game.all
+    end
+
+    def set_team_role_ratings
+      @role_ratings = @team.get_team_role_ratings
+      role_order = params[:role_order] || 'score'
+      case role_order
+        when 'role' then @role_ratings.sort_by!{ |rr| rr.role.name }
+        when 'user' then @role_ratings.sort_by!{ |rr| rr.user.username }
+        when 'score' then @role_ratings.sort_by!{ |rr| rr.score.value }
+      end      
+    end
+
+    def set_team_character_ratings
+      @character_ratings = @team.get_team_character_ratings
+      character_order = params[:character_order] || 'score'
+      case character_order
+        when 'character' then @character_ratings.sort_by!{ |cr| cr.champion.name }
+        when 'user' then @character_ratings.sort_by!{ |cr| cr.user.username }
+        when 'score' then @character_ratings.sort_by!{ |cr| cr.score.value }
+      end
     end
 end

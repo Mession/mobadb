@@ -1,5 +1,7 @@
 require 'spec_helper'
 
+include OwnTestHelper
+
 describe "Role Rating" do
   before :each do
     FactoryGirl.create :user, username: "Pena"

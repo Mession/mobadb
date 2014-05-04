@@ -1,5 +1,7 @@
 require 'spec_helper'
 
+include OwnTestHelper
+
 describe "Role" do
   describe "when trying to create" do
     before :each do
@@ -19,10 +21,36 @@ describe "Role" do
     end
 
     it "is created with a name" do
-      fill_in('role_name', with:'Carry')
+      fill_in('role[name]', with:'Carry')
       expect{
         click_button('Create Role')
       }.to change{Role.count}.by(1)
+    end
+
+    describe "after creation" do
+      before :each do
+        fill_in('role[name]', with:'Carry')
+        click_button('Create Role')
+      end
+
+      it "can be edited with correct attributes" do
+        click_on 'Edit role'
+        fill_in('role[name]', with:'Support')
+        click_on 'Update Role'
+        expect(page).to have_content 'Role was successfully updated.'
+      end
+
+      it "cannot be edited with blank name" do
+        click_on 'Edit role'
+        fill_in('role[name]', with:'')
+        click_on 'Update Role'
+        expect(page).to have_content "Name can't be blank"
+      end
+
+      it "can be destroyed" do
+        click_on 'Destroy role'
+        expect(Role.count).to be(0)
+      end
     end
 
   end

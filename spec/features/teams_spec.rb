@@ -1,5 +1,7 @@
 require 'spec_helper'
 
+include OwnTestHelper
+
 describe "Team" do
   before :each do
     FactoryGirl.create :team

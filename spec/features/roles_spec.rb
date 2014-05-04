@@ -1,5 +1,7 @@
 require 'spec_helper'
 
+include OwnTestHelper
+
 describe "Role" do
   describe "when trying to create" do
     before :each do

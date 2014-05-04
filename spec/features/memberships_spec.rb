@@ -20,7 +20,35 @@ describe "Membership" do
       visit users_path
       click_link 'Seppo'
       select "Tiimi", from: "membership[team_id]"
-      click_link
+      click_button 'Invite'
+    end
+
+    it "can be cancelled" do
+      expect{
+        click_on 'Cancel invitation'
+      }.to change{Membership.count}.by(-1)
+    end
+
+    describe "receiver" do
+      before :each do
+        sign_in(username:"Seppo", password:"Foobar1")
+      end
+
+      it "can be accepted" do
+        click_on 'Accept'
+        visit teams_path
+        click_on 'Tiimi'
+        expect(page).to have_content 'Seppo'
+      end
+
+      it "can be declined" do
+        click_on 'Decline'
+        expect(page).to have_content 'None at the moment!'
+        click_on 'Sign out'
+        visit teams_path
+        click_on 'Tiimi'
+        expect(page).not_to have_content 'Seppo'
+      end
     end
 
   end
